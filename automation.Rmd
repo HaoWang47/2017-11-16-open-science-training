@@ -1,0 +1,10 @@
+---
+title: "Automation"
+author: "Paul Harrison"
+---
+
+We will now look at automatically generating HTML and PDF documents.
+
+```{r}
+plot(1:10)
+```
