@@ -1,0 +1,106 @@
+---
+title: "Automation"
+output: ioslides_presentation
+---
+
+##
+
+First, some history.
+
+## In the beginning, Donald Knuth created **TeX**
+
+TeX (1978)
+
+* beautiful typesetting!
+* beautiful fonts! (Metafont)
+* bibliographies! (BibTeX)
+* beautiful mathematics!
+
+and he saw that it was good and wrote some books.
+
+Knuth also developed the idea of literate programming (1981) (WEB, TANGLE, WEAVE).
+
+Later, LaTeX was built on TeX, with better separation of formatting and content (1985).
+
+
+
+##
+
+For genius computer scientists, the document preparation problem was solved.
+
+39 years later...
+
+
+## A menagerie of file types
+
+Markup languages
+
+* LaTeX - great for paper documents
+* HTML - great for the web
+* Markdown - a popular simple format, less typing than either HTML or LaTeX
+
+Documents containing code
+
+* Rmarkdown
+* Jupyter notebooks
+
+Other formats
+
+* PDF
+* DOC
+
+
+## A hint of sanity
+
+`pandoc`
+
+Write in the markup format you like, convert to whatever formats you need.
+
+* Convert between markdown, HTML, LaTeX, etc.
+* Convert to PDF, DOC, etc.
+
+
+## Literate programming
+
+Source code as literature.
+
+Code and description are both given in the same source document.
+
+A particular form of this knits text, code, and output into the final document.
+
+<small>
+(See also: Roxygen, pydoc as examples of a different type of literate programming. Neither of these fully match Donald Knuth's initial vision.)
+</small>
+
+
+## Literate programming
+
+R
+
+* `knitr` package to run code, knit text, code, and output into a markdown document.
+* `Rmarkdown` package automates using `knitr` and `pandoc`.
+
+Python
+
+* Documents are JSON files.
+* Write using `jupyter notebook` web-based environment.
+* Convert to other formats with `jupyter nbconvert` (uses `pandoc`).
+
+
+
+## When you press the "knit" button...
+
+```{r echo=FALSE}
+DiagrammeR::grViz("
+digraph R { 
+    '.Rmd' -> '.md' [label='knitr'];
+    '.md' -> '.html' [label='pandoc']
+    '.md' -> '.tex' [label='pandoc']
+    '.tex' -> '.pdf' [label='pdflatex (run by pandoc)']
+}
+")
+```
+
+`Rmarkdown` package orchestrates all of this.
+
+
