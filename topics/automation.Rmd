@@ -17,19 +17,19 @@ The `rmarkdown` package in turn uses the `knitr` package to actually run R code,
 
 We can run this from a shell using
 
-```
+```{r eval=FALSE, highlight=FALSE}
 Rscript -e 'rmarkdown::render("foo.Rmd", "html_document")'
 ```
 
 ## Makefiles
 
-### Rules
-
 A programmer's natural instinct is to place this in a "Makefile" so that the `make` command can make the HTML document whenever we need to.
+
+### Rules
 
 Create a file called `Makefile` containing the following:
 
-```
+```{r eval=FALSE, highlight=FALSE}
 foo.html : foo.Rmd
     Rscript -e 'rmarkdown::render("foo.Rmd", "html_document")'
 ```
@@ -40,27 +40,27 @@ We have described how to create the file `foo.html` from the input file `foo.Rmd
 
 Now in a shell, type:
 
-```
+```{r eval=FALSE, highlight=FALSE}
 make foo.html
 ```
 
 Nothing happens, as the `.html` file was created after out last edit of the `.Rmd`. Make thinks the file is up to date, and does not run the command.
 
-Now edit the `.Rmd` file, and again run `make foo.html` in the shell. This time the command should run.
+Edit the `.Rmd` file, and again run `make foo.html` in the shell. This time the command should run.
 
 If you just type `make` on its own, the first rule in the `Makefile` is used.
 
 
-### Exercise
+#### Exercise {.challenge}
 
 Add some code the `foo.Rmd` that deliberately contains an error. What happens when you try to `make` it?
 
 
-## "Pattern" rules
+### "Pattern" rules
 
-Create a second Rmarkdown file, `bar.Rmd`. We could add a second rule to the Makefile to convert this into HTML, but this becomes repetitive. A better option is the use a "pattern rule":
+Create a second R Markdown file, `bar.Rmd`. We could add a second rule to the Makefile to convert this into HTML, but this becomes repetitive. A better option is the use a "pattern rule":
 
-```
+```{r eval=FALSE, highlight=FALSE}
 %.html : %.Rmd
     Rscript -e 'rmarkdown::render("$<", "html_document")'
 ```
@@ -72,7 +72,7 @@ Note here:
 
 Now to render our second file we can type:
 
-```
+```{r eval=FALSE, highlight=FALSE}
 make bar.html
 ```
 
@@ -80,7 +80,7 @@ make bar.html
 
 Consider this Makefile:
 
-```
+```{r eval=FALSE, highlight=FALSE}
 all : foo.html bar.html
     echo All files are now up to date
 
@@ -101,7 +101,7 @@ Try editing one of your Rmarkdown files and running `make` again. Notice only th
 
 It's common practice to also have a rule to clean away all the files that have been created. This gives a way to test everything works from a blank slate.
 
-```
+```{r eval=FALSE, highlight=FALSE}
 all : foo.html bar.html
     echo All files are now up to date
 
@@ -121,7 +121,7 @@ A final element of a Makefile is use of variables. With this, you should be able
 
 In our last Makefile, we typed `foo.html bar.html` twice. It would be nice to avoid this repetition. This can be achieved with a variable:
 
-```
+```{r eval=FALSE, highlight=FALSE}
 HTML_FILES=foo.html bar.html
 
 all : $(HTML_FILES)
@@ -135,7 +135,7 @@ clean :
 ```
 
 
-### Exercise
+#### Exercise {.challenge}
 
 Create a file `index.Rmd`, with hyperlinks to `foo.html` and `bar.html`. Recall that hyperlinks can be created in markdown with `[link text](destination.html)`.
 
@@ -144,11 +144,27 @@ Adjust your Makefile so this file is also built into an HTML file.
 Now you have a website. You could make this public for example by using [GitHub Pages](https://pages.github.com/), or by running your own webserver (such as [Apache](https://httpd.apache.org/) or [nginx](https://nginx.org/en/)).
 
 
+## Python
+
+The discussion above has focussed on R Markdown. In Python, a similar role is played by [Jupyter](http://jupyter.org/) notebooks. These are created in a web-based editor, which can be started by typing `jupyter notebook` in the shell. It is also possible to run a multi-user [Jupyter Hub](https://jupyterhub.readthedocs.io/en/latest/) on a server. Notebooks are stored in JSON format, and have extension `.ipynb`.
+
+Suppose you have created a notebook called `my_notebook.ipynb`. Then the following shell command can be used to run the code in it and convert the notebook to HTML:
+
+```{r eval=FALSE, highlight=FALSE}
+jupyter nbconvert --execute --to html my_notebook.ipynb
+```
+
+One difference between `.Rmd` and `.ipynb` files is that `.ipynb` files also contain cached output of code chunks. Specifying the `--execute` option here ensures all of the code in the notebook is run afresh. Using this command in a Makefile would ensure the build will halt with an error if there are any problems with the code.
+
+
+
 ## Discussion
 
-`make clean ; make` can be used to test all of the code in our tutorial. We will see an error message and the process will abort immediately if anything goes wrong as the HTML files are built. This is also a handy way to test that a training server has all the necessary R packages installed!
+`make clean ; make` can be used to test all of the code in our tutorial. We will see an error message and the process will abort immediately if anything goes wrong as the HTML files are built. This is also a handy way to test that a training server has all the necessary R or Python packages installed!
 
-If someone wants to adapt our tutorial, they can easily do so.
+If someone wants to adapt our tutorial, they can easily do so. Having made the changes they want, the HTML files can be re-built with a single command. Be sure to give your notes an appropriate licence, such as a [Creative Commons](https://creativecommons.org/) license, so that people know they can do this without having to ask your permission.
+
+Setting up tutorial notes in this way gives us desirable features of open science. We have left nothing out or the code will not run. They are easily reproducable and sharable. They are written plain text formats that anyone can edit, and built with tools that are all freely available. They can serve as a base that anyone who wants to can build on.
 
 
 

@@ -8,3 +8,6 @@ R packages:
 
 * rmarkdown
 * knitr
+
+
+See index.html for copyright information.

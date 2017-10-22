@@ -1,0 +1,30 @@
+---
+title: "Open science training, ABACBS 2017"
+output:
+    html_document:
+        theme: cerulean
+---
+
+## Slides
+
+* [Automation](slides/automation-slides.html)
+
+## Tutorials
+
+* [Automation](topics/automation.html)
+
+
+
+## Authors
+
+This course was developed by the [Monash Bioinformatics Platform](http://bioinformatics.erc.monash.edu):
+
+* Paul Harrison
+
+<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="images/CC-BY.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+
+
+## Source code
+
+* [GitHub repository](https://github.com/MonashBioinformaticsPlatform/2017-11-16-open-science-training)
+

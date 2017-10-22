@@ -1,8 +1,10 @@
 
 
-SECTIONS=slides/automation-slides topics/automation
+SECTIONS= \
+    index \
+    slides/automation-slides \
+    topics/automation
 
-MD_FILES=$(addsuffix .md,$(SECTIONS))
 HTML_FILES=$(addsuffix .html,$(SECTIONS))
 
 all : $(HTML_FILES)
@@ -11,12 +13,14 @@ all : $(HTML_FILES)
 %.html : %.Rmd
 	Rscript -e 'rmarkdown::render("$<")'
 
-%.md : %.Rmd
-	Rscript -e 'knitr::knit("$<")'
-
-#notes.pdf : automation.md
-#	pandoc $(MD_FILES) -o notes.pdf
+#%.md : %.Rmd
+#	Rscript -e 'knitr::knit("$<","$@")'
+#
+#notes.pdf : topics/automation.md
+#	pandoc topics/automation.md -o notes.pdf
 
 clean :
-	rm -f $(MD_FILES) $(HTML_FILES) notes.pdf
+	rm -f $(HTML_FILES)
+
+
 
