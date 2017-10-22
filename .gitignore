@@ -7,5 +7,5 @@
 *.Rproj
 
 figure
+tmp
 *.md
-

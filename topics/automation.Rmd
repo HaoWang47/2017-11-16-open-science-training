@@ -1,10 +1,154 @@
 ---
 title: "Automation"
-author: "Paul Harrison"
 ---
 
-We will now look at automatically generating HTML and PDF documents.
+## rmarkdown package
 
-```{r}
-plot(1:10)
+Under the hood, when you press the "Knit" button in RStudio the `rmarkdown` package's `render` function is used. We can also use this package from the R console.
+
+```{r eval=FALSE}
+rmarkdown::render("foo.Rmd", "html_document")
 ```
+
+The `rmarkdown` package in turn uses the `knitr` package to actually run R code, and external program `pandoc` to create HTML. When creating a PDF, the external program `latex` is also used.
+
+
+### rmarkdown from the shell
+
+We can run this from a shell using
+
+```
+Rscript -e 'rmarkdown::render("foo.Rmd", "html_document")'
+```
+
+## Makefiles
+
+### Rules
+
+A programmer's natural instinct is to place this in a "Makefile" so that the `make` command can make the HTML document whenever we need to.
+
+Create a file called `Makefile` containing the following:
+
+```
+foo.html : foo.Rmd
+    Rscript -e 'rmarkdown::render("foo.Rmd", "html_document")'
+```
+
+We have described how to create the file `foo.html` from the input file `foo.Rmd`. Multiple input files can be given if necessary, separated by spaces.
+
+**Important:** The indentation in a Makefile is important, and it must be a tab character. You can check this from R with the command `readLines("Makefile")` -- you should see the indent shown as a `\t` escape sequence. 
+
+Now in a shell, type:
+
+```
+make foo.html
+```
+
+Nothing happens, as the `.html` file was created after out last edit of the `.Rmd`. Make thinks the file is up to date, and does not run the command.
+
+Now edit the `.Rmd` file, and again run `make foo.html` in the shell. This time the command should run.
+
+If you just type `make` on its own, the first rule in the `Makefile` is used.
+
+
+### Exercise
+
+Add some code the `foo.Rmd` that deliberately contains an error. What happens when you try to `make` it?
+
+
+## "Pattern" rules
+
+Create a second Rmarkdown file, `bar.Rmd`. We could add a second rule to the Makefile to convert this into HTML, but this becomes repetitive. A better option is the use a "pattern rule":
+
+```
+%.html : %.Rmd
+    Rscript -e 'rmarkdown::render("$<", "html_document")'
+```
+
+Note here:
+
+* `%` symbol in the input and output file names indicates this is a pattern rule.
+* In the command we've use the special variable `$<` to insert the input filename into the command. More on variables later.
+
+Now to render our second file we can type:
+
+```
+make bar.html
+```
+
+### A "phony" rule to make all files
+
+Consider this Makefile:
+
+```
+all : foo.html bar.html
+    echo All files are now up to date
+
+%.html : %.Rmd
+    Rscript -e 'rmarkdown::render("$<", "html_document")'
+```
+
+* The `all` rule depends on some files, so `make` will ensure these are up to date. 
+
+* The command `echo` in the rule just prints out a message (this can even be left out entirely). `make` does not check that a file called `all` was actually created.
+
+* The `all` rule is the first rule in the `Makefile`, so it is the default rule that is run when you type `make`.
+
+Try editing one of your Rmarkdown files and running `make` again. Notice only the command to build that file's corresponding HTML file is run.
+
+
+### Cleaning up
+
+It's common practice to also have a rule to clean away all the files that have been created. This gives a way to test everything works from a blank slate.
+
+```
+all : foo.html bar.html
+    echo All files are now up to date
+
+clean : 
+    rm -f foo.html bar.html 
+
+%.html : %.Rmd
+    Rscript -e 'rmarkdown::render("$<", "html_document")'
+```
+
+Now we can type `make clean` to clean up, and `make clean ; make` will test that everything can be built without errors.
+
+
+### Variables
+
+A final element of a Makefile is use of variables. With this, you should be able to understand most of what is going on in Makefiles you encounter in the wild. 
+
+In our last Makefile, we typed `foo.html bar.html` twice. It would be nice to avoid this repetition. This can be achieved with a variable:
+
+```
+HTML_FILES=foo.html bar.html
+
+all : $(HTML_FILES)
+    echo All files are now up to date
+
+clean : 
+    rm -f $(HTML_FILES) 
+
+%.html : %.Rmd
+    Rscript -e 'rmarkdown::render("$<", "html_document")'
+```
+
+
+### Exercise
+
+Create a file `index.Rmd`, with hyperlinks to `foo.html` and `bar.html`. Recall that hyperlinks can be created in markdown with `[link text](destination.html)`.
+
+Adjust your Makefile so this file is also built into an HTML file.
+
+Now you have a website. You could make this public for example by using [GitHub Pages](https://pages.github.com/), or by running your own webserver (such as [Apache](https://httpd.apache.org/) or [nginx](https://nginx.org/en/)).
+
+
+## Discussion
+
+`make clean ; make` can be used to test all of the code in our tutorial. We will see an error message and the process will abort immediately if anything goes wrong as the HTML files are built. This is also a handy way to test that a training server has all the necessary R packages installed!
+
+If someone wants to adapt our tutorial, they can easily do so.
+
+
+

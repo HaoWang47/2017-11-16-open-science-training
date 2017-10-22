@@ -5,11 +5,11 @@ SECTIONS=slides/automation-slides topics/automation
 MD_FILES=$(addsuffix .md,$(SECTIONS))
 HTML_FILES=$(addsuffix .html,$(SECTIONS))
 
-
-all : $(HTML_FILES) notes.pdf
+all : $(HTML_FILES)
+	@echo All files are now up to date
 
 %.html : %.Rmd
-	Rscript -e 'rmarkdown::render("$<", "html_document")'
+	Rscript -e 'rmarkdown::render("$<")'
 
 %.md : %.Rmd
 	Rscript -e 'knitr::knit("$<")'
