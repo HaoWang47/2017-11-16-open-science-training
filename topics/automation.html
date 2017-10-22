@@ -137,20 +137,21 @@ $(document).ready(function () {
 </ul>
 </div>
 
+<p>( This section is inspired by how Software Carpentry structures their course git repositories. However by using the <code>rmarkdown</code> package we can keep things simpler. )</p>
 <div id="rmarkdown-package" class="section level2">
 <h2>rmarkdown package</h2>
 <p>Under the hood, when you press the “Knit” button in RStudio the <code>rmarkdown</code> package’s <code>render</code> function is used. We can also use this package from the R console.</p>
 <pre class="r"><code>rmarkdown::render(&quot;foo.Rmd&quot;, &quot;html_document&quot;)</code></pre>
-<p>The <code>rmarkdown</code> package in turn uses the <code>knitr</code> package to actually run R code, and external program <code>pandoc</code> to create HTML. When creating a PDF, the external program <code>latex</code> is also used.</p>
+<p>The <code>rmarkdown</code> package in turn uses the <code>knitr</code> package to actually run R code, and external program <code>pandoc</code> to create HTML. When creating a PDF, <code>pandoc</code> in turn uses <code>pdflatex</code>.</p>
 <div id="rmarkdown-from-the-shell" class="section level3">
 <h3>rmarkdown from the shell</h3>
-<p>We can run this from a shell using</p>
+<p>We can run this from a shell using:</p>
 <pre class="text"><code>Rscript -e 'rmarkdown::render(&quot;foo.Rmd&quot;, &quot;html_document&quot;)'</code></pre>
 </div>
 </div>
 <div id="makefiles" class="section level2">
 <h2>Makefiles</h2>
-<p>A programmer’s natural instinct is to place this in a “Makefile” so that the <code>make</code> command can make the HTML document whenever we need to.</p>
+<p>A programmer’s natural instinct will be to place this in a “Makefile” so that the <code>make</code> command can make the HTML document whenever we need to.</p>
 <div id="rules" class="section level3">
 <h3>Rules</h3>
 <p>Create a file called <code>Makefile</code> containing the following:</p>
@@ -175,7 +176,7 @@ $(document).ready(function () {
     Rscript -e 'rmarkdown::render(&quot;$&lt;&quot;, &quot;html_document&quot;)'</code></pre>
 <p>Note here:</p>
 <ul>
-<li><code>%</code> symbol in the input and output file names indicates this is a pattern rule.</li>
+<li><code>%</code> symbol in the input and output filenames indicates this is a pattern rule.</li>
 <li>In the command we’ve use the special variable <code>$&lt;</code> to insert the input filename into the command. More on variables later.</li>
 </ul>
 <p>Now to render our second file we can type:</p>
@@ -241,7 +242,7 @@ clean :
 <div id="discussion" class="section level2">
 <h2>Discussion</h2>
 <p><code>make clean ; make</code> can be used to test all of the code in our tutorial. We will see an error message and the process will abort immediately if anything goes wrong as the HTML files are built. This is also a handy way to test that a training server has all the necessary R or Python packages installed!</p>
-<p>If someone wants to adapt our tutorial, they can easily do so. Having made the changes they want, the HTML files can be re-built with a single command. Be sure to give your notes an appropriate licence, such as a <a href="https://creativecommons.org/">Creative Commons</a> license, so that people know they can do this without having to ask your permission.</p>
+<p>If someone wants to adapt our tutorial, they can easily do so. Having made the changes they want, the HTML files can be re-built with a single command. Give your notes an appropriate licence, such as a <a href="https://creativecommons.org/">Creative Commons</a> license, so that people know they can do this without having to ask your permission.</p>
 <p>Setting up tutorial notes in this way gives us desirable features of open science. We have left nothing out or the code will not run. They are easily reproducable and sharable. They are written plain text formats that anyone can edit, and built with tools that are all freely available. They can serve as a base that anyone who wants to can build on.</p>
 </div>
 

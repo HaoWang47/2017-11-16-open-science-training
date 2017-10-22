@@ -2,6 +2,8 @@
 title: "Automation"
 ---
 
+( This section is inspired by how Software Carpentry structures their course git repositories. However by using the `rmarkdown` package we can keep things simpler. )
+
 ## rmarkdown package
 
 Under the hood, when you press the "Knit" button in RStudio the `rmarkdown` package's `render` function is used. We can also use this package from the R console.
@@ -10,20 +12,21 @@ Under the hood, when you press the "Knit" button in RStudio the `rmarkdown` pack
 rmarkdown::render("foo.Rmd", "html_document")
 ```
 
-The `rmarkdown` package in turn uses the `knitr` package to actually run R code, and external program `pandoc` to create HTML. When creating a PDF, the external program `latex` is also used.
+The `rmarkdown` package in turn uses the `knitr` package to actually run R code, and external program `pandoc` to create HTML. When creating a PDF, `pandoc` in turn uses `pdflatex`.
 
 
 ### rmarkdown from the shell
 
-We can run this from a shell using
+We can run this from a shell using:
 
 ```{r eval=FALSE, highlight=FALSE}
 Rscript -e 'rmarkdown::render("foo.Rmd", "html_document")'
 ```
 
+
 ## Makefiles
 
-A programmer's natural instinct is to place this in a "Makefile" so that the `make` command can make the HTML document whenever we need to.
+A programmer's natural instinct will be to place this in a "Makefile" so that the `make` command can make the HTML document whenever we need to.
 
 ### Rules
 
@@ -67,7 +70,7 @@ Create a second R Markdown file, `bar.Rmd`. We could add a second rule to the Ma
 
 Note here:
 
-* `%` symbol in the input and output file names indicates this is a pattern rule.
+* `%` symbol in the input and output filenames indicates this is a pattern rule.
 * In the command we've use the special variable `$<` to insert the input filename into the command. More on variables later.
 
 Now to render our second file we can type:
@@ -162,7 +165,7 @@ One difference between `.Rmd` and `.ipynb` files is that `.ipynb` files also con
 
 `make clean ; make` can be used to test all of the code in our tutorial. We will see an error message and the process will abort immediately if anything goes wrong as the HTML files are built. This is also a handy way to test that a training server has all the necessary R or Python packages installed!
 
-If someone wants to adapt our tutorial, they can easily do so. Having made the changes they want, the HTML files can be re-built with a single command. Be sure to give your notes an appropriate licence, such as a [Creative Commons](https://creativecommons.org/) license, so that people know they can do this without having to ask your permission.
+If someone wants to adapt our tutorial, they can easily do so. Having made the changes they want, the HTML files can be re-built with a single command. Give your notes an appropriate licence, such as a [Creative Commons](https://creativecommons.org/) license, so that people know they can do this without having to ask your permission.
 
 Setting up tutorial notes in this way gives us desirable features of open science. We have left nothing out or the code will not run. They are easily reproducable and sharable. They are written plain text formats that anyone can edit, and built with tools that are all freely available. They can serve as a base that anyone who wants to can build on.
 
