@@ -141,12 +141,12 @@ $(document).ready(function () {
 <div id="rmarkdown-package" class="section level2">
 <h2>rmarkdown package</h2>
 <p>Under the hood, when you press the “Knit” button in RStudio the <code>rmarkdown</code> package’s <code>render</code> function is used. We can also use this package from the R console.</p>
-<pre class="r"><code>rmarkdown::render(&quot;foo.Rmd&quot;, &quot;html_document&quot;)</code></pre>
+<pre class="r"><code>rmarkdown::render(&quot;foo.Rmd&quot;)</code></pre>
 <p>The <code>rmarkdown</code> package in turn uses the <code>knitr</code> package to actually run R code, and external program <code>pandoc</code> to create HTML. When creating a PDF, <code>pandoc</code> in turn uses <code>pdflatex</code>.</p>
 <div id="rmarkdown-from-the-shell" class="section level3">
 <h3>rmarkdown from the shell</h3>
 <p>We can run this from a shell using:</p>
-<pre class="text"><code>Rscript -e 'rmarkdown::render(&quot;foo.Rmd&quot;, &quot;html_document&quot;)'</code></pre>
+<pre class="text"><code>Rscript -e 'rmarkdown::render(&quot;foo.Rmd&quot;)'</code></pre>
 </div>
 </div>
 <div id="makefiles" class="section level2">
@@ -156,7 +156,7 @@ $(document).ready(function () {
 <h3>Rules</h3>
 <p>Create a file called <code>Makefile</code> containing the following:</p>
 <pre class="text"><code>foo.html : foo.Rmd
-    Rscript -e 'rmarkdown::render(&quot;foo.Rmd&quot;, &quot;html_document&quot;)'</code></pre>
+    Rscript -e 'rmarkdown::render(&quot;foo.Rmd&quot;)'</code></pre>
 <p>We have described how to create the file <code>foo.html</code> from the input file <code>foo.Rmd</code>. Multiple input files can be given if necessary, separated by spaces.</p>
 <p><strong>Important:</strong> The indentation in a Makefile is important, and it must be a tab character. You can check this from R with the command <code>readLines(&quot;Makefile&quot;)</code> – you should see the indent shown as a <code>\t</code> escape sequence.</p>
 <p>Now in a shell, type:</p>
@@ -173,7 +173,7 @@ $(document).ready(function () {
 <h3>“Pattern” rules</h3>
 <p>Create a second R Markdown file, <code>bar.Rmd</code>. We could add a second rule to the Makefile to convert this into HTML, but this becomes repetitive. A better option is the use a “pattern rule”:</p>
 <pre class="text"><code>%.html : %.Rmd
-    Rscript -e 'rmarkdown::render(&quot;$&lt;&quot;, &quot;html_document&quot;)'</code></pre>
+    Rscript -e 'rmarkdown::render(&quot;$&lt;&quot;)'</code></pre>
 <p>Note here:</p>
 <ul>
 <li><code>%</code> symbol in the input and output filenames indicates this is a pattern rule.</li>
@@ -189,7 +189,7 @@ $(document).ready(function () {
     echo All files are now up to date
 
 %.html : %.Rmd
-    Rscript -e 'rmarkdown::render(&quot;$&lt;&quot;, &quot;html_document&quot;)'</code></pre>
+    Rscript -e 'rmarkdown::render(&quot;$&lt;&quot;)'</code></pre>
 <ul>
 <li><p>The <code>all</code> rule depends on some files, so <code>make</code> will ensure these are up to date.</p></li>
 <li><p>The command <code>echo</code> in the rule just prints out a message (this can even be left out entirely). <code>make</code> does not check that a file called <code>all</code> was actually created.</p></li>
@@ -207,7 +207,7 @@ clean :
     rm -f foo.html bar.html 
 
 %.html : %.Rmd
-    Rscript -e 'rmarkdown::render(&quot;$&lt;&quot;, &quot;html_document&quot;)'</code></pre>
+    Rscript -e 'rmarkdown::render(&quot;$&lt;&quot;)'</code></pre>
 <p>Now we can type <code>make clean</code> to clean up, and <code>make clean ; make</code> will test that everything can be built without errors.</p>
 </div>
 <div id="variables" class="section level3">
@@ -223,7 +223,7 @@ clean :
     rm -f $(HTML_FILES) 
 
 %.html : %.Rmd
-    Rscript -e 'rmarkdown::render(&quot;$&lt;&quot;, &quot;html_document&quot;)'</code></pre>
+    Rscript -e 'rmarkdown::render(&quot;$&lt;&quot;)'</code></pre>
 <div id="exercise-1" class="section level4 challenge">
 <h4>Exercise</h4>
 <p>Create a file <code>index.Rmd</code>, with hyperlinks to <code>foo.html</code> and <code>bar.html</code>. Recall that hyperlinks can be created in markdown with <code>[link text](destination.html)</code>.</p>

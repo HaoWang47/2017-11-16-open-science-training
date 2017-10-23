@@ -2,7 +2,8 @@
 
 SECTIONS= \
     index \
-    slides/automation-slides \
+    slides/introduction \
+    slides/markup \
     topics/automation
 
 HTML_FILES=$(addsuffix .html,$(SECTIONS))

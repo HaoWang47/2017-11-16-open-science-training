@@ -1,0 +1,9 @@
+slides > slide.title-slide {
+    background-image: url("../images/MBP-banner.png");
+    background-repeat: no-repeat;
+}
+
+slides > slide > h1,h2 {
+    color: #048;
+}
+

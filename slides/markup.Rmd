@@ -1,6 +1,9 @@
 ---
-title: "Automation"
-output: ioslides_presentation
+title: "Document markup languages"
+output: 
+    ioslides_presentation:
+        css: slides-style.css
+        widescreen: true
 ---
 
 ##
@@ -39,7 +42,7 @@ Markup languages
 * HTML - great for the web
 * Markdown - a popular simple format, less typing than either HTML or LaTeX
 
-Documents containing code
+Literate programming (documents with markup and code)
 
 * Rmarkdown
 * Jupyter notebooks

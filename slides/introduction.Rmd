@@ -1,0 +1,30 @@
+---
+title: "Open access and collaboration resources for training"
+output: 
+    ioslides_presentation:
+        css: slides-style.css
+        widescreen: true
+---
+
+## MBP training format
+
+* Heavily inspired by Software Carpentry
+
+
+
+## Training server
+
+
+
+## Course material
+
+
+
+## Examples of material sharing
+
+* Adapting Software Carpentry material
+
+* Gathering material for a Python course
+
+* Roxanne and Stuart's RNA-seq course adapted by COMBINE
+

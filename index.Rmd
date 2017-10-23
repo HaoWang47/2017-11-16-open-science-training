@@ -7,7 +7,9 @@ output:
 
 ## Slides
 
-* [Automation](slides/automation-slides.html)
+* [Introduction](slides/introduction.html)
+
+* [Document markup languages](slides/markup.html)
 
 ## Tutorials
 

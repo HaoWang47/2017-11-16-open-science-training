@@ -9,7 +9,7 @@ title: "Automation"
 Under the hood, when you press the "Knit" button in RStudio the `rmarkdown` package's `render` function is used. We can also use this package from the R console.
 
 ```{r eval=FALSE}
-rmarkdown::render("foo.Rmd", "html_document")
+rmarkdown::render("foo.Rmd")
 ```
 
 The `rmarkdown` package in turn uses the `knitr` package to actually run R code, and external program `pandoc` to create HTML. When creating a PDF, `pandoc` in turn uses `pdflatex`.
@@ -20,7 +20,7 @@ The `rmarkdown` package in turn uses the `knitr` package to actually run R code,
 We can run this from a shell using:
 
 ```{r eval=FALSE, highlight=FALSE}
-Rscript -e 'rmarkdown::render("foo.Rmd", "html_document")'
+Rscript -e 'rmarkdown::render("foo.Rmd")'
 ```
 
 
@@ -34,7 +34,7 @@ Create a file called `Makefile` containing the following:
 
 ```{r eval=FALSE, highlight=FALSE}
 foo.html : foo.Rmd
-    Rscript -e 'rmarkdown::render("foo.Rmd", "html_document")'
+    Rscript -e 'rmarkdown::render("foo.Rmd")'
 ```
 
 We have described how to create the file `foo.html` from the input file `foo.Rmd`. Multiple input files can be given if necessary, separated by spaces.
@@ -65,7 +65,7 @@ Create a second R Markdown file, `bar.Rmd`. We could add a second rule to the Ma
 
 ```{r eval=FALSE, highlight=FALSE}
 %.html : %.Rmd
-    Rscript -e 'rmarkdown::render("$<", "html_document")'
+    Rscript -e 'rmarkdown::render("$<")'
 ```
 
 Note here:
@@ -88,7 +88,7 @@ all : foo.html bar.html
     echo All files are now up to date
 
 %.html : %.Rmd
-    Rscript -e 'rmarkdown::render("$<", "html_document")'
+    Rscript -e 'rmarkdown::render("$<")'
 ```
 
 * The `all` rule depends on some files, so `make` will ensure these are up to date. 
@@ -112,7 +112,7 @@ clean :
     rm -f foo.html bar.html 
 
 %.html : %.Rmd
-    Rscript -e 'rmarkdown::render("$<", "html_document")'
+    Rscript -e 'rmarkdown::render("$<")'
 ```
 
 Now we can type `make clean` to clean up, and `make clean ; make` will test that everything can be built without errors.
@@ -134,7 +134,7 @@ clean :
     rm -f $(HTML_FILES) 
 
 %.html : %.Rmd
-    Rscript -e 'rmarkdown::render("$<", "html_document")'
+    Rscript -e 'rmarkdown::render("$<")'
 ```
 
 
