@@ -1,9 +1,11 @@
 ---
-title: "Open science training, ABACBS 2017"
+title: "Open access and collaboration resources for training"
 output:
     html_document:
         theme: cerulean
 ---
+
+Course material for the [Using Open Science in Bioinformatics Training workshop](https://www.abacbs.org/conference-workshops) at ABACBS 2017.
 
 ## Slides
 
@@ -30,3 +32,5 @@ This course was developed by the [Monash Bioinformatics Platform](http://bioinfo
 
 * [GitHub repository](https://github.com/MonashBioinformaticsPlatform/2017-11-16-open-science-training)
 
+<p style="margin-top: 10em">
+<a href="http://bioinformatics.erc.monash.edu"><img src="images/MBP-banner.png"></a>
