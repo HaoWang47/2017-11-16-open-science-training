@@ -11,14 +11,31 @@ output:
 * Heavily inspired by Software Carpentry
 
 
+## Workshop set-up
+
+* User accounts on a training server
+
+* Google doc/Etherpad
+
+* Sticky notes
+
+* Workshop helpers
 
 ## Training server
 
+* Managed by bio-ansible?
 
+* Running R-Studio on a webserver means that partipants don't need to install software, just need a web-browser
+
+* In theory, should be smooth to get participants going but there are always problems that crop up
 
 ## Course material
 
+* Intro to R
 
+* RNAseq DE analysis using R
+
+* Best Practices in R/Advance R
 
 ## Examples of material sharing
 

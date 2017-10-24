@@ -1,0 +1,179 @@
+---
+title: "Writing documents with R Markdown"
+date: "24/10/2017"
+output: html_document
+---
+<style>
+
+
+
+</style>
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+Markdown is a powerful “language” for writing different kinds of documents, such as PDF or HTML in an efficient way, but markdown documents can also be published as is. The underlying idea for markdown is that it is easy-to-write and easy-to-read.
+
+R Markdown builds on Markdown, allowing for code to be embedded and executed within the body of a Markdown document. 
+
+
+## Why We Use R Markdown
+
+* Code chunks: allows code to be easily embeded with text in one document
+
+* Reproducible
+
+* Easy to test the code
+
+* Easy to adapt by another person e.g Paul did so with Software Carpentry material
+
+* Versatile - can produce different document formats from the one source text file e.g html, pdf, Word, ioslide slideshow.
+
+* Actively being developed by R-Studio team which means it plays well with Shiny and other packages developed by them
+
+## R Markdown in Training
+
+### Markdown basics
+
+The general idea for Markdown's formatting syntax is to make text as easy to read as possible but can be converted easily to html. 
+
+Our sample plain text is:
+
+```
+Time to learn some markdown!
+```
+
+We can format the text into a header using the `#` symbol:
+
+```
+# Time to learn some markdown!
+## Time to learn some markdown!
+### Time to learn some markdown!
+#### Time to learn some markdown!
+```
+
+<div class="code-exmpl">
+# Time to learn some markdown!
+## Time to learn some markdown!
+### Time to learn some markdown!
+#### Time to learn some markdown!
+</div>
+
+The `#` symbol is Markdown's syntax for a header. The number of `#`s choose which type of header to produce. The equivalent html would be:
+
+```
+<h1> Time to learn some markdown!</h1>
+<h2> Time to learn some markdown!</h2>
+<h3> Time to learn some markdown!</h3>
+<h4> Time to learn some markdown!</h4>
+```
+
+Examples of Markdown syntax - **bold** and _italics_:
+
+`*` or `_` can be used to note _emphasis_
+
+`**` or `__` can be used to __bold__ text
+
+They can also be combined together:
+
+```
+*Time* to learn some markdown!
+
+Time to _learn_ some markdown!
+
+Time to learn **some** markdown!
+
+Time to learn some __markdown!__
+
+Time to learn __*some*__ markdown!
+
+Time to **_learn_** some markdown!
+
+Time ***to*** learn some markdown!
+
+___Time___ to learn some markdown!
+```
+
+<div class="code-exmpl">
+*Time* to learn some markdown!
+
+Time to _learn_ some markdown!
+
+Time to learn **some** markdown!
+
+Time to learn some __markdown!__
+
+Time to learn __*some*__ markdown!
+
+Time to **_learn_** some markdown!
+
+Time ***to*** learn some markdown!
+
+___Time___ to learn some markdown!
+</div>
+
+Examples of Markdown syntax - ordered and unordered lists:
+
+For unordered lists, you can use: `*`, `-` or `+`:
+
+```
+* a bullet point
+- a bullet point
++ still a buller point
+```
+
+<div class="code-exmpl">
+* a bullet point
+- a bullet point
++ still a bullet point
+</div>
+
+For ordered lists, you use a number with a dot: `1.`:
+
+```
+1. First item on our numbered list
+2. Second item on our numbered list
+```
+
+<div class="code-exmpl">
+1. First item on our numbered list
+2. Second item on our numbered list
+</div>
+
+To create sub-lists, ident the next list evenly by two or four spaces
+
+```
+1. First item on our numbered list
+    * a bullet point
+    - a bullet point
+    + still a bullet point
+  
+2. Second item on our numbered list
+    * a bullet point:
+        * Now with a sub-list to our sub-list
+            * still with a sub-list to our sub-list
+    - a bullet point
+    + still a bullet point
+```
+
+<div class="code-exmpl">
+1. First item on our numbered list
+    * a bullet point
+    - a bullet point
+    + still a bullet point
+  
+2. Second item on our numbered list
+    * a bullet point:
+        * Now with a sub-list to our sub-list
+            * Continuing to sub-list
+    - a bullet point
+    + still a bullet point
+</div>
+
+The take home here is that it's quick and easy to format your text as you write. 
+
+
+
