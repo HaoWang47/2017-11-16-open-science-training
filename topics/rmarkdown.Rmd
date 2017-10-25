@@ -3,11 +3,6 @@ title: "Writing documents with R Markdown"
 date: "24/10/2017"
 output: html_document
 ---
-<style>
-
-
-
-</style>
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
@@ -18,7 +13,6 @@ knitr::opts_chunk$set(echo = TRUE)
 Markdown is a powerful “language” for writing different kinds of documents, such as PDF or HTML in an efficient way, but markdown documents can also be published as is. The underlying idea for markdown is that it is easy-to-write and easy-to-read.
 
 R Markdown builds on Markdown, allowing for code to be embedded and executed within the body of a Markdown document. 
-
 
 ## Why We Use R Markdown
 
@@ -36,9 +30,15 @@ R Markdown builds on Markdown, allowing for code to be embedded and executed wit
 
 ## R Markdown in Training
 
-### Markdown basics
+* Generate html files and slides from R Markdown files
 
-The general idea for Markdown's formatting syntax is to make text as easy to read as possible but can be converted easily to html. 
+* Host on GitHub Pages
+
+* Stylesheets to control appearance uniformly across multiple files
+
+### Markdown Basics
+
+The general idea behind Markdown is to make text as easy to read as possible. Its syntax is specifically comprised entirely of punctuation characters to look like what it means. 
 
 Our sample plain text is:
 
@@ -173,7 +173,50 @@ To create sub-lists, ident the next list evenly by two or four spaces
     + still a bullet point
 </div>
 
+Examples of Markdown syntax - hyperlinks and images
+
+To create a link, the syntax is `[]()` e.g
+
+```
+[The link text shown on the page](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
+
+```
+
+This will produce:
+
+<div class="code-exmpl">
+
+[The link text shown on the page](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
+</div>
+
 The take home here is that it's quick and easy to format your text as you write. 
 
+## Anatomy of an R Markdown file
 
+An R Markdown file contains three things:
 
+1. A YAML header (optional) at the top of the document:
+
+```
+---
+title: "Writing documents with R Markdown"
+
+date: "24/10/2017"
+
+output: html_document
+---
+```
+
+This is the YAML header for this R Markdown document. This block allows you to fine-tune the output of your document. You can adjust the theme, alter the table of contents, choose the type of file(s) to output (i.e could just be to html or to html and pdf at the same time), etc.  
+
+2. Markdown text - aka the body of the document you've reading thus far
+
+3. Code chunks
+
+A code chunk delimiter looks like:
+
+` ```{r} `
+
+` ``` `
+
+All code falls between the triple backtrick marks. When working in R-Studio, a little green arrow appears at the end of the code block, clicking this will run and evaluate the code. 
