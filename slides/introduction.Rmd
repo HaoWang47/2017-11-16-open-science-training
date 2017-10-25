@@ -8,40 +8,78 @@ output:
 
 ## MBP training format
 
-* Heavily inspired by Software Carpentry
+Heavily inspired by Software Carpentry:
 
-
-## Workshop set-up
-
-* User accounts on a training server
-
-* Google doc/Etherpad
+* 2-3 trainers + additional helpers
 
 * Sticky notes
 
-* Workshop helpers
+* Collaborative notepad
 
-## Training server
+* User accounts on a training server
 
-* Managed by bio-ansible?
+## Courses We Teach
 
-* Running R-Studio on a webserver means that partipants don't need to install software, just need a web-browser
-
-* In theory, should be smooth to get participants going but there are always problems that crop up
-
-## Course material
+Full day workshops:
 
 * Intro to R
 
 * RNAseq DE analysis using R
 
-* Best Practices in R/Advance R
+* Best Practices in R/Advanced R
+
+Three hour sessions:
+
+* Working with sequences and genomic features
 
 ## Examples of material sharing
 
-* Adapting Software Carpentry material
+* Adapting Software Carpentry material for our own course 
 
-* Gathering material for a Python course
+* Gathering online material for a Python course
 
 * Roxanne and Stuart's RNA-seq course adapted by COMBINE
+
+## Tools and technology
+
+* Server set-up and management: bio-ansible
+
+* Training interfaces: R-Studio Server and Jupyter Hub
+
+* Training material: R Markdown and Jupyter Notebooks
+
+* Collaborative notepads: Etherpad and Google Docs
+
+## Training Server
+
+* Managed by bio-ansible
+
+* Script for adding new users and linking course datasets to their home directories
+
+* Run R-Studio/Jupyter on a traning server means that partipants don't need to install software or download example datasets, just need a web-browser
+
+* In theory, should be smooth to get participants going but there are always problems that crop up
+
+## Training Material
+
+## Collaboration Notepads
+
+During the workshop:
+
+* Etherpad/Google Docs: 'collaborative notepad'.
+
+Use to share answers to challenges, write notes and ask questions.
+
+Both free to use
+
+Etherpad - Open source, actively developed
+
+## Etherpad
+
+<center><img src="https://github.com/MonashBioinformaticsPlatform/2017-11-16-open-science-training/blob/master/images/etherpad.png?raw=true" width="1000" height="500" /></center>
+
+
+## Google Doc
+
+
 
