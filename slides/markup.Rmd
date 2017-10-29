@@ -80,8 +80,8 @@ A particular form of this knits text, code, and output into the final document.
 
 R
 
-* `knitr` package to run code, knit text, code, and output into a markdown document.
-* `Rmarkdown` package automates using `knitr` and `pandoc`.
+* `knitr` package by [Yihui Xie](https://yihui.name/) to run code, knit text, code, and output into a markdown document.
+* `rmarkdown` package from RStudio automates using `knitr` and `pandoc`.
 
 Python
 

@@ -10,6 +10,6 @@ R packages:
 
 * rmarkdown
 * knitr
-
+* DiagrammeR
 
 See index.html for copyright information.
