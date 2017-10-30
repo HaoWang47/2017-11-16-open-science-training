@@ -120,6 +120,8 @@
 
 <p>39 years later&#8230;</p>
 
+<p>&#8230; the World Wide Web and HTML happen &#8230;</p>
+
 </article></slide><slide class=''><hgroup><h2>A menagerie of file types</h2></hgroup><article  id="a-menagerie-of-file-types">
 
 <p>Markup languages</p>
@@ -144,9 +146,7 @@
 <li>DOC</li>
 </ul>
 
-</article></slide><slide class=''><hgroup><h2>A hint of sanity</h2></hgroup><article  id="a-hint-of-sanity">
-
-<p><code>pandoc</code></p>
+</article></slide><slide class=''><hgroup><h2><code>pandoc</code></h2></hgroup><article  id="pandoc">
 
 <p>Write in the markup format you like, convert to whatever formats you need.</p>
 
@@ -163,7 +163,7 @@
 
 <p>A particular form of this knits text, code, and output into the final document.</p>
 
-<p><small> (See also: Roxygen, pydoc as examples of a different type of literate programming. Neither of these fully match Donald Knuth&#39;s initial vision.) </small></p>
+<p><small> (See also: Roxygen, pydoc as examples of a different type of literate programming. Neither of these types fully match Donald Knuth&#39;s initial vision.) </small></p>
 
 </article></slide><slide class=''><hgroup><h2>Literate programming</h2></hgroup><article  id="literate-programming-1">
 
@@ -184,8 +184,8 @@
 
 </article></slide><slide class=''><hgroup><h2>When you press the &quot;knit&quot; button&#8230;</h2></hgroup><article  id="when-you-press-the-knit-button...">
 
-<div id="htmlwidget-a0c4c337db9135e9f95c" style="width:720px;height:432px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-a0c4c337db9135e9f95c">{"x":{"diagram":"\ndigraph R { \n    \".Rmd\" -> \".md\" [label=\"knitr\"];\n    \".md\" -> \".html\" [label=\"pandoc\"]\n    \".md\" -> \".tex\" [label=\"pandoc\"]\n    \".tex\" -> \".pdf\" [label=\"pdflatex (run by pandoc)\"]\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-9a835af1919289e061fe" style="width:720px;height:432px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-9a835af1919289e061fe">{"x":{"diagram":"\ndigraph R { \n    \".Rmd\" -> \".md\" [label=\"knitr\"];\n    \".md\" -> \".html\" [label=\"pandoc\"]\n    \".md\" -> \".tex\" [label=\"pandoc\"]\n    \".tex\" -> \".pdf\" [label=\"pdflatex (run by pandoc)\"]\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 
 <p><code>Rmarkdown</code> package orchestrates all of this.</p></article></slide>
 

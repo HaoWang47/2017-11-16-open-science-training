@@ -33,6 +33,8 @@ For genius computer scientists, the document preparation problem was solved.
 
 39 years later...
 
+... the World Wide Web and HTML happen ...
+
 
 ## A menagerie of file types
 
@@ -53,9 +55,7 @@ Other formats
 * DOC
 
 
-## A hint of sanity
-
-`pandoc`
+## `pandoc`
 
 Write in the markup format you like, convert to whatever formats you need.
 
@@ -72,7 +72,7 @@ Code and description are both given in the same source document.
 A particular form of this knits text, code, and output into the final document.
 
 <small>
-(See also: Roxygen, pydoc as examples of a different type of literate programming. Neither of these fully match Donald Knuth's initial vision.)
+(See also: Roxygen, pydoc as examples of a different type of literate programming. Neither of these types fully match Donald Knuth's initial vision.)
 </small>
 
 
