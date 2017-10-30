@@ -1,8 +1,8 @@
 ---
-title: "Automation"
+title: "Automation with a Makefile"
 ---
 
-( This section is inspired by how Software Carpentry structures their course git repositories. However by using the `rmarkdown` package we can keep things simpler. )
+This section is aiming for a happy medium of flexibility. The approach is inspired by how Software Carpentry structures their course git repositories. However by using the `rmarkdown` package we can keep things simpler. `rmarkdown` also has a [`render_site`](http://rmarkdown.rstudio.com/rmarkdown_websites.html) function which can build a whole website at once, which might be sufficient to your needs.
 
 ## rmarkdown package
 
@@ -165,9 +165,19 @@ One difference between `.Rmd` and `.ipynb` files is that `.ipynb` files also con
 
 `make clean ; make` can be used to test all of the code in our tutorial. We will see an error message and the process will abort immediately if anything goes wrong as the HTML files are built. This is also a handy way to test that a training server has all the necessary R or Python packages installed!
 
+You might want to add some further rules, for example:
+
+* Creating a ZIP file of files used in the tutorial for easy download.
+* Creating a PDF verions of the notes, by creating markdown files using either `rmarkdown` or `knitr` and then using `pandoc` to create a PDF using LaTeX.
+* Running scripts to save results of lengthy calculations, so that rendering Rmd files remains fast.
+
 If someone wants to adapt our tutorial, they can easily do so. Having made the changes they want, the HTML files can be re-built with a single command. Give your notes an appropriate licence, such as a [Creative Commons](https://creativecommons.org/) license, so that people know they can do this without having to ask your permission.
 
 Setting up tutorial notes in this way gives us desirable features of open science. We have left nothing out or the code will not run. They are easily reproducable and sharable. They are written plain text formats that anyone can edit, and built with tools that are all freely available. They can serve as a base that anyone who wants to can build on.
+
+
+
+
 
 
 

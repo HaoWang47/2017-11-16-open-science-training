@@ -100,15 +100,7 @@
 <li><p>User accounts on a training server</p></li>
 </ul>
 
-</article></slide><slide class=''><hgroup><h2>Training server</h2></hgroup><article  id="training-server">
-
-<ul>
-<li><p>Managed by bio-ansible</p></li>
-<li><p>Run R-Studio/Jupyter on a webserver means that partipants don&#39;t need to install software or download tutorial datasets, just need a web-browser</p></li>
-<li><p>In theory, should be smooth to get participants going but there are always problems that crop up</p></li>
-</ul>
-
-</article></slide><slide class=''><hgroup><h2>Course material</h2></hgroup><article  id="course-material">
+</article></slide><slide class=''><hgroup><h2>Courses We Teach</h2></hgroup><article  id="courses-we-teach">
 
 <p>Full day workshops:</p>
 
@@ -132,7 +124,27 @@
 <li><p>Roxanne and Stuart&#39;s RNA-seq course adapted by COMBINE</p></li>
 </ul>
 
-</article></slide><slide class=''><hgroup><h2>Collaboration Resources</h2></hgroup><article  id="collaboration-resources">
+</article></slide><slide class=''><hgroup><h2>Tools and technology</h2></hgroup><article  id="tools-and-technology">
+
+<ul>
+<li><p>Server set-up and management: bio-ansible</p></li>
+<li><p>Training interfaces: R-Studio Server and Jupyter Hub</p></li>
+<li><p>Training material: R Markdown and Jupyter Notebooks</p></li>
+<li><p>Collaborative notepads: Etherpad and Google Docs</p></li>
+</ul>
+
+</article></slide><slide class=''><hgroup><h2>Training Server</h2></hgroup><article  id="training-server">
+
+<ul>
+<li><p>Managed by bio-ansible</p></li>
+<li><p>Script for adding new users and linking course datasets to their home directories</p></li>
+<li><p>Run R-Studio/Jupyter on a traning server means that partipants don&#39;t need to install software or download example datasets, just need a web-browser</p></li>
+<li><p>In theory, should be smooth to get participants going but there are always problems that crop up</p></li>
+</ul>
+
+</article></slide><slide class=''><hgroup><h2>Training Material</h2></hgroup><article  id="training-material">
+
+</article></slide><slide class=''><hgroup><h2>Collaboration Notepads</h2></hgroup><article  id="collaboration-notepads">
 
 <p>During the workshop:</p>
 
@@ -153,6 +165,20 @@
 <img src="https://github.com/MonashBioinformaticsPlatform/2017-11-16-open-science-training/blob/master/images/etherpad.png?raw=true" width="1000" height="500" />
 
 </center>
+
+</article></slide><slide class=''><hgroup><h2>Etherpad</h2></hgroup><article  id="etherpad-1">
+
+<p>Latest version runs on <code>node</code> (server-side javascript).</p>
+
+<p>Many free servers available. We&#39;ve had problems when using beta.etherpad.org.</p>
+
+<p>Easy to set up for yourself, for full control over settings:</p>
+
+<pre >git clone git://github.com/ether/etherpad-lite.git
+cd etherpad-lite
+bin/run.sh</pre>
+
+<p>(Will want to make some to changes <code>settings.json</code>, especially use a better database than the default <code>&quot;dirty&quot;</code>. <code>&quot;sqlite&quot;</code> should be fine.)</p>
 
 </article></slide><slide class=''><hgroup><h2>Google Doc</h2></hgroup><article  id="google-doc"></article></slide>
 

@@ -78,8 +78,25 @@ Etherpad - Open source, actively developed
 
 <center><img src="https://github.com/MonashBioinformaticsPlatform/2017-11-16-open-science-training/blob/master/images/etherpad.png?raw=true" width="1000" height="500" /></center>
 
+## Etherpad
+
+Latest version runs on `node` (server-side javascript).
+
+Many free servers available. We've had problems when using beta.etherpad.org.
+
+Easy to set up for yourself, for full control over settings:
+
+```
+git clone git://github.com/ether/etherpad-lite.git
+cd etherpad-lite
+bin/run.sh
+```
+
+(Will want to make some to changes `settings.json`, especially use a better database than the default `"dirty"`. `"sqlite"` should be fine.)
 
 ## Google Doc
+
+
 
 
 
