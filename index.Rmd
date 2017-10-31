@@ -19,7 +19,7 @@ Course material for the [Using Open Science in Bioinformatics Training workshop]
 
 * [Automation with a Makefile](topics/automation.html)
 
-
+---
 
 ## Authors
 
@@ -35,5 +35,6 @@ This course was developed by the [Monash Bioinformatics Platform](http://bioinfo
 
 * [GitHub repository](https://github.com/MonashBioinformaticsPlatform/2017-11-16-open-science-training)
 
-<p style="margin-top: 10em">
-<a href="http://bioinformatics.erc.monash.edu"><img src="images/MBP-banner.png"></a>
+<p style="margin-top: 5em; text-align: right">
+<a href="http://bioinformatics.erc.monash.edu"><img src="images/MBP-banner.png" width="675"></a>
+</p>
