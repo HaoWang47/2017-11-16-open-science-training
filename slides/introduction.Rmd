@@ -60,25 +60,53 @@ Three hour sessions:
 
 * In theory, should be smooth to get participants going but there are always problems that crop up
 
-## Training Material
+## Training Material - R Markdown
 
-## Collaboration Notepads
+Markdown is a powerful “language” for writing different kinds of documents, such as PDF or HTML in an efficient way, but markdown documents can also be published as is. The underlying idea for markdown is that it is easy to write and easy to read.
+
+R Markdown builds on Markdown, allowing for code to be embedded and executed within the body of a Markdown document. 
+
+<center><img src="https://github.com/MonashBioinformaticsPlatform/2017-11-16-open-science-training/blob/master/images/rmarkdown.png?raw=true" width="900"/></center>
+
+## Why We Use R Markdown
+
+* Code chunks: code is easy to test and very easily embeded with text in one document.
+
+* Reproducible
+
+* Easy to adapt by another person
+
+* Actively being developed by R-Studio team which means it plays well with other packages developed by them
+
+<center><img src="https://www.rstudio.com/wp-content/uploads/2015/10/r-packages.png"</center>
+
+##
+
+* Versatile - can produce different document formats from the one source text file e.g web pages, pdfs, Word documents, slideshow presentations.
+
+<center><img src="http://rmarkdown.rstudio.com/images/RMarkdownOutputFormats.png"</center>
+
+## R Markdown in Training
+
+* Generate html files and slides from R Markdown files
+
+* Host on GitHub Pages
+
+* Stylesheets and YAML files to control appearance and document output uniformly across multiple files
+
+## Collaborative Notepads
 
 During the workshop:
 
 * Etherpad/Google Docs: 'collaborative notepad'.
 
-Use to share answers to challenges, write notes and ask questions.
+* Use to share answers to challenges, write notes and ask questions.
 
-Both free to use
+* Both free to use
+
+## Etherpad
 
 Etherpad - Open source, actively developed
-
-## Etherpad
-
-<center><img src="https://github.com/MonashBioinformaticsPlatform/2017-11-16-open-science-training/blob/master/images/etherpad.png?raw=true" width="1000" height="500" /></center>
-
-## Etherpad
 
 Latest version runs on `node` (server-side javascript).
 
@@ -94,9 +122,23 @@ bin/run.sh
 
 (Will want to make some to changes `settings.json`, especially use a better database than the default `"dirty"`. `"sqlite"` should be fine.)
 
+## Etherpad
+
+<center><img src="https://github.com/MonashBioinformaticsPlatform/2017-11-16-open-science-training/blob/master/images/etherpad.png?raw=true" width="1000" height="500" /></center>
+
 ## Google Doc
 
+<center><img src="https://www.wired.com/wp-content/uploads/2016/04/Google-Docs-Icon-lead.jpg" width="500" height="500" /></center>
 
+Workshop attendees seem to interact less with it
+
+Little discussion, only submission of answers
+
+Notes to self: 
+
+* remember to open access to editing
+
+* Also open access to attendees that aren't using an institute email :)
 
 
 
