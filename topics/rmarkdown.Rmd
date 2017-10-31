@@ -10,7 +10,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## R Markdown
 
-Markdown is a powerful “language” for writing different kinds of documents, such as PDF or HTML in an efficient way, but markdown documents can also be published as is. The underlying idea for markdown is that it is easy-to-write and easy-to-read.
+Markdown is a powerful “language” for writing different kinds of documents, such as PDF or HTML in an efficient way, but markdown documents can also be published as is. The underlying idea for markdown is that it is easy to write and easy to read.
 
 R Markdown builds on Markdown, allowing for code to be embedded and executed within the body of a Markdown document. 
 
@@ -24,9 +24,11 @@ R Markdown builds on Markdown, allowing for code to be embedded and executed wit
 
 * Easy to adapt by another person e.g Paul did so with Software Carpentry material
 
-* Versatile - can produce different document formats from the one source text file e.g html, pdf, Word, ioslide slideshow.
-
 * Actively being developed by R-Studio team which means it plays well with Shiny and other packages developed by them
+
+* Versatile - can produce different document formats from the one source text file e.g html, pdf, Word, slideshow presentations.
+
+![](http://rmarkdown.rstudio.com/images/RMarkdownOutputFormats.png)
 
 ## R Markdown in Training
 
@@ -36,15 +38,69 @@ R Markdown builds on Markdown, allowing for code to be embedded and executed wit
 
 * Stylesheets to control appearance uniformly across multiple files
 
-### Markdown Basics
+![](https://github.com/MonashBioinformaticsPlatform/2017-11-16-open-science-training/blob/master/images/rmarkdown.png?raw=true)
 
-The general idea behind Markdown is to make text as easy to read as possible. Its syntax is specifically comprised entirely of punctuation characters to look like what it means. 
+## Markdown Basics
 
-Our sample plain text is:
+Before we get into R Markdown, we'll touch on the basics of Markdown. The general idea behind Markdown is to write text which is as easy to read as possible that can be easily converted into HTML (or other file types). 
+
+Markdown is both:
+
+1. A plain text formatting syntax
+
+2. A software tool that converts the formatted plain text to HTML
+
+__Markdown vs html:__
+
+Say we want to write this:
+
+<div class="code-exmpl">
+### Today's shopping list:
+
+* Milk
+* Eggs
+* Cereal
+* Fruit
+</div>
+
+The text below is what you'd write in HTML:
 
 ```
-Time to learn some markdown!
+<body>
+  <h3>Today's shopping list:</h3>
+    <ul>
+      <li>Milk</li>
+      <li>Eggs</li>
+      <li>Cereal</li>
+      <li>Fruit</li>
+    </ul>
+</body>
+
 ```
+
+Whereas in Markdown:
+
+```
+### Today's shopping list:
+
+* Milk
+* Eggs
+* Cereal
+* Fruit
+
+```
+
+Markdown is a lot quicker to write and is more human readable. Let's explore some more Markdown syntax together. We'll do this in a R Markdown file in R Studio since it's easy to render to html from there.
+
+Firstly, open up a R Markdown file in R Studio.
+
+Click the `File` tab, `New File`, then `R Markdown`.
+
+Leave the default output as is (HTML), choose a title for the new R Markdown file or leave it blank. The new document generated will already contain text - this will demonstrate the basics of R Markdown. You can `knit` the new document to take a look at the resulting html file. Since R Studio knows that this is a R Markdown file, it will have a little `Knit` button in the source pane. This will generate a html file from the R Markdown file. 
+
+For our purposes of working through Markdown, we're going to clear everything out of the file and save as `demo.md`. R Studio will now change the `Knit` button to `Preview` and will still generate a html file.
+
+#### __Markdown syntax:__
 
 We can format the text into a header using the `#` symbol:
 
@@ -54,6 +110,8 @@ We can format the text into a header using the `#` symbol:
 ### Time to learn some markdown!
 #### Time to learn some markdown!
 ```
+
+Click `Preview` to examine the resulting html.
 
 <div class="code-exmpl">
 # Time to learn some markdown!
@@ -71,7 +129,7 @@ The `#` symbol is Markdown's syntax for a header. The number of `#`s choose whic
 <h4> Time to learn some markdown!</h4>
 ```
 
-Examples of Markdown syntax - **bold** and _italics_:
+#### Examples of Markdown syntax - **bold** and _italics_:
 
 `*` or `_` can be used to note _emphasis_
 
@@ -115,14 +173,14 @@ Time ***to*** learn some markdown!
 ___Time___ to learn some markdown!
 </div>
 
-Examples of Markdown syntax - ordered and unordered lists:
+#### Examples of Markdown syntax - ordered and unordered lists:
 
 For unordered lists, you can use: `*`, `-` or `+`:
 
 ```
 * a bullet point
 - a bullet point
-+ still a buller point
++ still a bullet point
 ```
 
 <div class="code-exmpl">
@@ -131,7 +189,7 @@ For unordered lists, you can use: `*`, `-` or `+`:
 + still a bullet point
 </div>
 
-For ordered lists, you use a number with a dot: `1.`:
+For ordered lists, you use a number with a dot, e.g: `1.`:
 
 ```
 1. First item on our numbered list
@@ -173,9 +231,9 @@ To create sub-lists, ident the next list evenly by two or four spaces
     + still a bullet point
 </div>
 
-Examples of Markdown syntax - hyperlinks and images
+#### Examples of Markdown syntax - hyperlinks and images
 
-To create a link, the syntax is `[]()` e.g
+To create a link, the syntax is `[]()` e.g:
 
 ```
 [The link text shown on the page](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
@@ -189,9 +247,21 @@ This will produce:
 [The link text shown on the page](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
 </div>
 
+For an image, the syntax is `![]()` e.g:
+
+```
+![](https://imgs.xkcd.com/comics/eternal_flame.gif)
+```
+
+<div class="code-exmpl">
+![](https://imgs.xkcd.com/comics/eternal_flame.gif)
+</div>
+
 The take home here is that it's quick and easy to format your text as you write. 
 
 ## Anatomy of an R Markdown file
+
+We are now going to work with an R Markdown file. Save your file with a `.Rmd` extension. 
 
 An R Markdown file contains three things:
 
@@ -200,23 +270,208 @@ An R Markdown file contains three things:
 ```
 ---
 title: "Writing documents with R Markdown"
-
 date: "24/10/2017"
-
 output: html_document
 ---
 ```
 
-This is the YAML header for this R Markdown document. This block allows you to fine-tune the output of your document. You can adjust the theme, alter the table of contents, choose the type of file(s) to output (i.e could just be to html or to html and pdf at the same time), etc.  
+This is the YAML (originally meant `Yet Another Markup Language` now stands for `YAML Ain't Markup Language`) header for this R Markdown document. The header is enclosed by two sets of three dashes `---`. This block allows you to fine-tune the output of your document. It's a set of key:value pairs that describes the file that should be built from the R Markdown file. You can adjust the theme, alter the table of contents, choose the type of file(s) to output (i.e could just be to html or to html and pdf at the same time), etc.  
 
-2. Markdown text - aka the body of the document you've reading thus far
+At the top of our file, set the YAML header to:
+
+```
+---
+title: "Your title here"
+date: "Todays date"
+output:
+  html_document
+---
+```
+
+We'll come back to this, once we've got a bit more in our document, to really appreciate the control YAML has over the output of a document.
+
+The full list of [YAML header options for a HTML document](http://rmarkdown.rstudio.com/html_document_format.html). For a [PDF document, look here](http://rmarkdown.rstudio.com/pdf_document_format.html).
+
+2. Markdown text - we've covered this above. For now, delete the multiple headers of `Time to learn some markdown!` and create a header over the body of the text: 
+
+```
+## Markdown Basics
+
+```
+
+Create subheaders to the different topics (Bold and italics, lists, hyperlinks, etc)
+
 
 3. Code chunks
 
-A code chunk delimiter looks like:
+Code chunks are used to render R (and code from other programming languages!) output into a document. A code chunk delimiter looks like:
 
 ` ```{r} `
 
 ` ``` `
 
-All code falls between the triple backtrick marks. When working in R-Studio, a little green arrow appears at the end of the code block, clicking this will run and evaluate the code. 
+All code falls between the triple backtrick marks. You can write this manually but within R Studio, there's a little green `Insert` button in the source pane that will insert code chunks when clicked. Also when working R-Studio, a little green arrow appears at the end of the code block, clicking this will run and evaluate the code. 
+
+Inside the curly braces, options can be passed to control the output of the code chunk, the name of the chunk, how it appears, whether it's evaluated, etc. There's a whole range of figure options specifically for configuring the appearance of plots within the document.
+
+
+```{r demo_chunk_num}
+
+10 * 4
+
+10:15
+
+rep(c(1, 2, 3), times = 5)
+
+```
+
+If we just want to show code but not run it, we can add the `eval=FALSE` option.
+
+```{r demo_chunk_num_not_evaluated, eval=FALSE}
+
+10 * 4
+
+10:15
+
+rep(c(1, 2, 3), times = 5)
+
+```
+
+Or if we just want to show the results but no code, add the `echo=FALSE` option:
+
+```{r demo_chunk_num_not_echo, echo=FALSE}
+
+10 * 4
+
+10:15
+
+rep(c(1, 2, 3), times = 5)
+
+```
+
+
+We can display tables from code blocks:
+
+
+```{r demo_chunk_table}
+
+mtcars
+
+```
+
+The mtcars dataset is a dataset inbuilt in R that we'll use an example test dataset. The dataset here will print a non-interactive table in the output html (there are ways to change this if you want, e.g adding `df_print: paged` to the YAML header. This is useful if the table is quite large and can't fit neatly on the page). 
+
+We can also create plots:
+
+```{r demo_plot}
+plot(mtcars$mpg, mtcars$disp)
+```
+
+We can use figure options to customise the output of the plot, e.g:
+
+* `fig.align='center` to set the alignment to the middle of the document
+* `fig.height=8` to set the height of the figure
+* `fig.width=8` to set the width of the figure
+* `fig.cap="Fig 1. Miles per gallon vs displacement"` to add a caption describing the plot
+
+
+```{r demo_plot_mod, fig.align='center', fig.cap="Fig 1. Miles per gallon vs displacement", fig.height=8, fig.width=8}
+plot(mtcars$mpg, mtcars$disp)
+```
+
+
+## Styling and Extending YAML for multiple files
+
+### Styling
+
+While R Markdown has a few in-built themes to customise the appearance of a document that can be passed to the YAML header, a stylesheet can be used to further customise the appearance of the document. We aren't going to cover how CSS works, but if you are familiar with it, you either write it within the body of the document or you can generate a CSS file to provide the styles you want to the document. 
+
+e.g, if you add this under the YAML header:
+
+```
+<style>
+p {
+  background: #e6f2ff
+}
+</style>
+
+```
+
+That applies a light blue background to all the paragraphs in the document. You could go further and add more styling but rather than sticking it in the body of the document, it's better to save the styling to a seperate CSS file.
+
+This file is then passed to the YAML header - depending on how much the CSS file affects, you may need to set the theme and highlight to null to ensure no conflicts arise. 
+
+```
+---
+title: "Demo Markdown Document"
+output:
+  html_document:
+    theme: null
+    highlight: null
+    css: styles.css
+---
+```
+
+We can write the example styling to a simple CSS file as so:
+
+```
+p {
+  background: #e6f2ff
+}
+
+```
+
+Save this as `style_demo.css` and save it in the same directory as the R Markdown you are working on. Edit your YAML header to:
+
+```
+---
+output:
+  html_document:
+    css: style_demo.css
+---
+```
+
+This should change all paragraphs to have a blue background. 
+
+It's also possible to target specific parts of the document from the CSS file by using ids and classes to section headers in the document.
+
+For example, we want to style a specific part of our document.
+
+```
+.particular_topic_block {
+    margin: 2em;
+    padding: 2em;
+    border: 1px solid red;
+    border-radius: 5px;
+    background: #ffffe6;
+}
+
+```
+
+It isn't pretty if you've left in the `p` styling but we hope this demonstrates how you can write your material in R Markdown and then apply styling with an external file. With just one line in the YAML header for each document, this styling can be applied to multiple files.
+
+### YAML for multiple documents
+
+But we can go a step even further.
+
+So you've got a bunch of R Markdown document full of material. You could set the YAML header individually for each one of them or you could create a `_output.yaml` file within the directory of multiple R Markdown files. All documents located in the same directory will inherit the YAML options defined in this file as default. However, specifically setting the YAML header of a file will overide the options from the `_output.yaml` file.
+
+In the `_output.yaml` file, no delimiters are required:
+
+```
+html_document:
+  toc: true
+  toc_float: true
+  toc_depth: 4
+  theme: paper
+  highlight: expresso
+  css: style_demo.css
+```
+
+Now we don't even need to set the YAML headers for each file.
+
+
+In summary, 
+
+
+
