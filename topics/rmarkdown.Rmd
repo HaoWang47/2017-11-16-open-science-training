@@ -10,7 +10,6 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## R Markdown
 
-
 ## Markdown Basics
 
 Before we get into R Markdown, we'll touch on the basics of Markdown. The general idea behind Markdown is to write text which is as easy to read as possible that can be easily converted into HTML (or other file types). 
@@ -20,8 +19,6 @@ Markdown is both:
 1. A plain text formatting syntax
 
 2. A software tool that converts the formatted plain text to HTML
-
-__Markdown vs html:__
 
 Say we want to write this:
 
@@ -69,7 +66,7 @@ Click the `File` tab, `New File`, then `R Markdown`.
 
 Leave the default output as is (HTML), choose a title for the new R Markdown file or leave it blank. The new document generated will already contain text - this will demonstrate the basics of R Markdown. You can `knit` the new document to take a look at the resulting html file. Since R Studio knows that this is a R Markdown file, it will have a little `Knit` button in the source pane. This will generate a html file from the R Markdown file. 
 
-For our purposes of working through Markdown, we're going to clear everything out of the file and save as `demo.md`. R Studio will now change the `Knit` button to `Preview` and will still generate a html file.
+For our purposes of working through Markdown, we're going to clear everything out of the file and save as `demo.Rmd`.
 
 #### __Markdown syntax:__
 
@@ -82,7 +79,7 @@ We can format the text into a header using the `#` symbol:
 #### Time to learn some markdown!
 ```
 
-Click `Preview` to examine the resulting html.
+Click `Knit` or use `rmarkdown::render("demo.Rmd")` to examine the resulting html.
 
 <div class="code-exmpl">
 # Time to learn some markdown!
@@ -172,7 +169,7 @@ For ordered lists, you use a number with a dot, e.g: `1.`:
 2. Second item on our numbered list
 </div>
 
-To create sub-lists, ident the next list evenly by two or four spaces
+To create sub-lists, indent the next list evenly by two or four spaces
 
 ```
 1. First item on our numbered list
@@ -236,7 +233,7 @@ We are now going to work with an R Markdown file. Save your file with a `.Rmd` e
 
 An R Markdown file contains three things:
 
-1. A YAML header (optional) at the top of the document:
+#### 1. A YAML header (optional) at the top of the document:
 
 ```
 ---
@@ -263,7 +260,9 @@ We'll come back to this, once we've got a bit more in our document, to really ap
 
 The full list of [YAML header options for a HTML document](http://rmarkdown.rstudio.com/html_document_format.html). For a [PDF document, look here](http://rmarkdown.rstudio.com/pdf_document_format.html).
 
-2. Markdown text - we've covered this above. For now, delete the multiple headers of `Time to learn some markdown!` and create a header over the body of the text: 
+#### 2. Markdown text
+
+We've covered this above. For now, delete the multiple headers of `Time to learn some markdown!` and create a header over the body of the text: 
 
 ```
 ## Markdown Basics
@@ -276,7 +275,8 @@ Create subheaders to the different topics (Bold and italics, lists, hyperlinks, 
 ## Embedding Code
 ```
 
-3. Code chunks
+
+#### 3. Code chunks
 
 Code chunks are used to render R (and code from other programming languages!) output into a document. A code chunk delimiter looks like:
 
@@ -284,7 +284,15 @@ Code chunks are used to render R (and code from other programming languages!) ou
 
 ` ``` `
 
-All code falls between the triple backtrick marks. You can write this manually but within R Studio, there's a little green `Insert` button in the source pane that will insert code chunks when clicked. Also when working R-Studio, a little green arrow appears at the end of the code block, clicking this will run and evaluate the code. 
+All code falls between the triple backtrick marks, e.g:
+
+` ```{r} `
+
+` 1+1 `
+
+` ``` `
+
+You can write this manually but within R Studio, there's a little green `Insert` button in the source pane that will insert code chunks when clicked. Also when working R-Studio, a little green arrow appears at the end of the code block, clicking this will run and evaluate the code. 
 
 Inside the curly braces, options can be passed to control the output of the code chunk, the name of the chunk, how it appears, whether it's evaluated, etc. There's a whole range of figure options specifically for configuring the appearance of plots within the document.
 
@@ -353,13 +361,156 @@ We can use figure options to customise the output of the plot, e.g:
 plot(mtcars$mpg, mtcars$disp)
 ```
 
+### More on YAML
+
+#### Themes 
+
+You've written your R Markdown file. But how do you want to present it? Maybe you don't like the appearance of the web page. R Markdown has a number of [in-built themes](http://rmarkdown.rstudio.com/html_document_format.html#appearance_and_style) you could try out to quickly change the look of a web page.
+
+Our YAML header currently looks something like:
+
+```
+---
+title: "Your title here"
+date: "Todays date"
+output: 
+  html_document
+---
+```
+
+We can add a theme like this:
+
+```
+---
+title: "Your title here"
+date: "Todays date"
+output: 
+  html_document:
+    theme: journal
+---
+```
+
+Other theme options: `default`, `cerulean`, `journal`, `flatly`, `readable`, `spacelab`, `united`,  `cosmo`, `lumen`, `paper`, `sandstone`, `simplex`, `yeti`.
+
+We can also alter the appearance of code chunks with the `highlight` option:
+
+```
+---
+title: "Your title here"
+date: "Todays date"
+output: 
+  html_document:
+    theme: journal
+    highlight: tango
+---
+```
+
+Other highlight options: `default`, `tango`, `pygments`,  `kate`, `monochrome`, `espresso`, `zenburn`, `haddock`, `textmate`.
+
+If you want to create your own styling, you can add your own CSS to the document. We'll come back to that a little later. 
+
+#### Table of contents
+
+Your document has gotten very large and it's hard to navigate. You can add a table of contents to aid in navigating with `toc`:
+
+```
+---
+title: "Your title here"
+date: "Todays date"
+output: 
+  html_document:
+    theme: journal
+    highlight: expresso
+    toc: true
+---
+```
+
+This will produce a web page with a table of contents using the headers inside our document. There's a few more things we can do with the table of contents:
+
+```
+---
+title: "Your title here"
+date: "Todays date"
+output: 
+  html_document:
+    theme: journal
+    highlight: espresso
+    toc: true
+    toc_float: true
+    toc_depth: 4
+---
+```
+
+This will now ensure the table of contents floats on the side of the web page and is always accesible, allowing for easy navigation. By default, the table of contents depth is set to 3 so it includes any H1, H2, H3 headers. Anything lower than 3 is not included (e.g if we have a H4 or H5 header) but by setting the depth to 4, now H4 headers are included in the table of contents. Or maybe we can go the opposite way and insist that anything lower than a H2 header shouldn't be included in the table of contents (`toc_depth: 2`).
+
+#### Document output format
+
+Something has come up and you need to deliver your material in a different form. We've been creating web pages from our R Markdown file so far but now you need a PDF instead.
+
+To change the file format, we change from `html_document` to `pdf_document` under the `output` option: 
+
+```
+---
+title: "Your title here"
+date: "Todays date"
+output: 
+  pdf_document:
+    theme: journal
+    highlight: espresso
+    toc: true
+    toc_float: true
+    toc_depth: 4
+---
+```
+
+And when we click the `Knit` button, we use the dropdown menu, `Knit to PDF`. Our R Markdown file will now produce a PDF file instead.
+
+Wait - an error has occured. The message we have is `unused argument (theme = "journal")`. PDF files can't take the `theme` option, this is what's causing our error. Not all YAML options are universally applicable - each document type has options that are specific to them, so it's worth looking at the [R Mardown website](http://rmarkdown.rstudio.com/formats.html) to see what you can do with them. 
+
+PDF files can't take the `toc_float: true` as well. Therefore we should try:
+
+```
+---
+title: "Your title here"
+date: "Todays date"
+output: 
+  pdf_document:
+    highlight: espresso
+    toc: true
+    toc_depth: 4
+---
+```
+
+We also don't need to solely produce just a web page or just a pdf file. We can do both at the same time and specify options to them:
+
+```
+---
+title: "Your title here"
+date: "Todays date"
+output: 
+  pdf_document:
+    highlight: espresso
+    toc: true
+    toc_depth: 4
+  html_document:
+    toc: false
+    highlight: haddock
+    theme: journal
+---
+```
+
+This will produce a pdf document with a table of contents and a themed web page without one. The highlights will be different for each document.
+
+We still have to seperately knit to the type of file we want if we use the `Knit` button. Or we could use the render function: `rmarkdown::render("demo.Rmd", output_format = "all")` and this will render all the specified output types.
+
+
 ## Styling and Extending YAML for multiple files
 
 ### Styling
 
 While R Markdown has a few in-built themes to customise the appearance of a document that can be passed to the YAML header, a stylesheet can be used to further customise the appearance of the document. We aren't going to cover how CSS works, but if you are familiar with it, you either write it within the body of the document or you can generate a CSS file to provide the styles you want to the document. 
 
-e.g, if you add this under the YAML header:
+e.g, if you add this in the body of your document, under the YAML block:
 
 ```
 <style>
@@ -371,19 +522,6 @@ p {
 ```
 
 That applies a light blue background to all the paragraphs in the document. You could go further and add more styling but rather than sticking it in the body of the document, it's better to save the styling to a seperate CSS file.
-
-This file is then passed to the YAML header - depending on how much the CSS file affects, you may need to set the theme and highlight to null to ensure no conflicts arise. 
-
-```
----
-title: "Demo Markdown Document"
-output:
-  html_document:
-    theme: null
-    highlight: null
-    css: styles.css
----
-```
 
 We can write the example styling to a simple CSS file as so:
 
@@ -398,11 +536,17 @@ Save this as `style_demo.css` and save it in the same directory as the R Markdow
 
 ```
 ---
+title: "Demo Markdown Document"
 output:
   html_document:
-    css: style_demo.css
+    theme: null
+    highlight: null
+    css: styles.css
 ---
 ```
+
+
+This file is then passed to the YAML header - depending on how much the CSS file affects, you may need to set the theme and highlight to null to ensure no conflicts arise. 
 
 This should change all paragraphs to have a blue background. 
 
@@ -421,11 +565,19 @@ For example, we want to style a specific part of our document.
 
 ```
 
+Then, next to one of your headers, add:
+
+```
+
+## Markdown Basics {.particular_topic_block}
+
+```
+
+This will apply the styling to this part of the document until the next header. 
+
 It isn't pretty if you've left in the `p` styling but we hope this demonstrates how you can write your material in R Markdown and then apply styling with an external file. With just one line in the YAML header for each document, this styling can be applied to multiple files.
 
-### YAML for multiple documents
-
-But we can go a step even further.
+#### YAML for multiple documents
 
 So you've got a bunch of R Markdown document full of material. You could set the YAML header individually for each one of them or you could create a `_output.yaml` file within the directory of multiple R Markdown files. All documents located in the same directory will inherit the YAML options defined in this file as default. However, specifically setting the YAML header of a file will overide the options from the `_output.yaml` file.
 

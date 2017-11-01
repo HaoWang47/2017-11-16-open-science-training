@@ -36,7 +36,7 @@ Three hour sessions:
 
 * Adapting Software Carpentry material for our own course 
 
-* Gathering online material for a Python course
+* Using online material for a Python course
 
 * Roxanne and Stuart's RNA-seq course adapted by COMBINE
 
@@ -46,9 +46,11 @@ Three hour sessions:
 
 * Training interfaces: R-Studio Server and Jupyter Hub
 
-* Training material: R Markdown and Jupyter Notebooks
+* Training material: R Markdown, Jupyter Notebooks, Makefiles
 
 * Collaborative notepads: Etherpad and Google Docs
+
+* Version control and file hosting: GitHub/GitHub Pages
 
 ## Training Server
 
@@ -58,13 +60,16 @@ Three hour sessions:
 
 * Run R-Studio/Jupyter on a traning server means that partipants don't need to install software or download example datasets, just need a web-browser
 
-* In theory, should be smooth to get participants going but there are always problems that crop up
+* In theory, should be smooth to get participants going but there are always new problems that crop up
 
-## Training Material - R Markdown
+<center><img src="https://imgs.xkcd.com/comics/fixing_problems.png" height="200"/></center>
+
+
+## Training Material - R Markdown/Jupyter
 
 Markdown is a powerful “language” for writing different kinds of documents, such as PDF or HTML in an efficient way, but markdown documents can also be published as is. The underlying idea for markdown is that it is easy to write and easy to read.
 
-R Markdown builds on Markdown, allowing for code to be embedded and executed within the body of a Markdown document. 
+R Markdown builds on Markdown, allowing for code to be embedded and executed within the body of a Markdown document. Jupyter Notebooks also integrate Markdown and cell blocks that contain code.
 
 <center><img src="https://github.com/MonashBioinformaticsPlatform/2017-11-16-open-science-training/blob/master/images/rmarkdown.png?raw=true" width="900"/></center>
 
@@ -88,7 +93,9 @@ R Markdown builds on Markdown, allowing for code to be embedded and executed wit
 
 ## R Markdown in Training
 
-* Generate html files and slides from R Markdown files
+* Generate html files and slides containing learning materials from R Markdown files
+
+* Each lesson contained to a single R Markdown file
 
 * Host on GitHub Pages
 
@@ -103,6 +110,8 @@ During the workshop:
 * Use to share answers to challenges, write notes and ask questions.
 
 * Both free to use
+
+<center><img src="https://raw.githubusercontent.com/MonashBioinformaticsPlatform/2017-11-16-open-science-training/master/images/etherdoc_logos.png"</center>
 
 ## Etherpad
 
