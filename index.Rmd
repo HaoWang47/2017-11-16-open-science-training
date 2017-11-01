@@ -17,7 +17,14 @@ Course material for the [Using Open Science in Bioinformatics Training workshop]
 
 * [Writing documents with R Markdown](topics/rmarkdown.html)
 
-* [Automation with a Makefile](topics/automation.html)
+* [Automation with makefiles](topics/automation.html)
+
+---
+
+## Links
+
+* [ABACBS Training and Education page](https://www.abacbs.org/trainers/)
+* [Monash Bioinformatics Platform workshop archive](http://bioinformatics.erc.monash.edu/training/workshop-archive)
 
 ---
 

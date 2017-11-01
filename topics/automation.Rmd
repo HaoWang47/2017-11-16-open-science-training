@@ -1,8 +1,12 @@
 ---
-title: "Automation with a Makefile"
+title: "Automation with makefiles"
 ---
 
-This section is aiming for a happy medium of flexibility. The approach is inspired by how Software Carpentry structures their course git repositories. However by using the `rmarkdown` package we can keep things simpler. `rmarkdown` also has a [`render_site`](http://rmarkdown.rstudio.com/rmarkdown_websites.html) function which can build a whole website at once, which might be sufficient to your needs.
+## Introduction
+
+This section is aiming for a happy medium of flexibility for producing training material. The approach is inspired by how Software Carpentry structure their git repositories, however by using the `rmarkdown` package we can keep things simple. If you want to go simpler still, `rmarkdown` also has a [`render_site`](http://rmarkdown.rstudio.com/rmarkdown_websites.html) function which can build a whole website at once, which might be sufficient to your needs.
+
+We will first look at the `rmarkdown` package, then how to use this package from a Makefile to automate building of .html files from .Rmd files.
 
 ## rmarkdown package
 
