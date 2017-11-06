@@ -10,6 +10,8 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## R Markdown
 
+[R Markdown is an authoring framework for data science.](http://rmarkdown.rstudio.com/lesson-1.html) An R Markdown document can execute code side by side with regular text. 
+
 ## Markdown Basics
 
 Before we get into R Markdown, we'll touch on the basics of Markdown. The general idea behind Markdown is to write text which is as easy to read as possible that can be easily converted into HTML (or other file types). 
@@ -229,7 +231,7 @@ The take home here is that it's quick and easy to format your text as you write.
 
 ## Anatomy of an R Markdown file
 
-We are now going to work with an R Markdown file. Save your file with a `.Rmd` extension. 
+We are now going to work with an R Markdown file. 
 
 An R Markdown file contains three things:
 
@@ -294,7 +296,7 @@ All code falls between the triple backtrick marks, e.g:
 
 You can write this manually but within R Studio, there's a little green `Insert` button in the source pane that will insert code chunks when clicked. Also when working R-Studio, a little green arrow appears at the end of the code block, clicking this will run and evaluate the code. 
 
-Inside the curly braces, options can be passed to control the output of the code chunk, the name of the chunk, how it appears, whether it's evaluated, etc. There's a whole range of figure options specifically for configuring the appearance of plots within the document.
+Inside the curly braces, options can be passed to control the output of the code chunk, the name of the chunk, how it appears, whether it's evaluated, etc. There's also a whole range of figure options specifically for configuring the appearance of plots within the document.
 
 
 ```{r demo_chunk_num}
@@ -365,7 +367,7 @@ plot(mtcars$mpg, mtcars$disp)
 
 #### Themes 
 
-You've written your R Markdown file. But how do you want to present it? Maybe you don't like the appearance of the web page. R Markdown has a number of [in-built themes](http://rmarkdown.rstudio.com/html_document_format.html#appearance_and_style) you could try out to quickly change the look of a web page.
+You've written your R Markdown file. But how do you want to present it? Maybe you don't like the default appearance of the web page. R Markdown has a number of [in-built themes](http://rmarkdown.rstudio.com/html_document_format.html#appearance_and_style) you could try out to quickly change the look of a web page.
 
 Our YAML header currently looks something like:
 
@@ -436,16 +438,33 @@ output:
     theme: journal
     highlight: espresso
     toc: true
-    toc_float: true
     toc_depth: 4
+    toc_float: true
 ---
 ```
 
 This will now ensure the table of contents floats on the side of the web page and is always accesible, allowing for easy navigation. By default, the table of contents depth is set to 3 so it includes any H1, H2, H3 headers. Anything lower than 3 is not included (e.g if we have a H4 or H5 header) but by setting the depth to 4, now H4 headers are included in the table of contents. Or maybe we can go the opposite way and insist that anything lower than a H2 header shouldn't be included in the table of contents (`toc_depth: 2`).
 
+However, our floating toc defaults to collapsing down smaller headers. To prevent this behaviour, we can add `collapsed: true`:
+
+```
+---
+title: "Your title here"
+date: "Todays date"
+output: 
+  html_document:
+    theme: journal
+    highlight: espresso
+    toc: true
+    toc_depth: 4
+    toc_float:
+      collapsed: false
+---
+```
+
 #### Document output format
 
-Something has come up and you need to deliver your material in a different form. We've been creating web pages from our R Markdown file so far but now you need a PDF instead.
+Something has come up and now you need to deliver your material in a different form. We've been creating web pages from our R Markdown file so far but now you need a PDF instead.
 
 To change the file format, we change from `html_document` to `pdf_document` under the `output` option: 
 
@@ -458,8 +477,8 @@ output:
     theme: journal
     highlight: espresso
     toc: true
-    toc_float: true
     toc_depth: 4
+    toc_float: true
 ---
 ```
 
@@ -605,11 +624,11 @@ In summary with R Markdown we can:
 
 Things we haven't touched on but think are neat:
 
-* [R Notebooks](http://rmarkdown.rstudio.com/r_notebooks.html) - sort of a special execution mode for R Markdown documents. They are pretty similiar to regular R Markdown documents now but can be shared very easily. They generate a self-contained HTML file which contains a rendered copy of the notebook which can be displayed on a website as well as a copy of the notebook .Rmd itself - handy for sharing and reproducing analyses. 
+* [R Notebooks](http://rmarkdown.rstudio.com/r_notebooks.html) - sort of a special execution mode for R Markdown documents. They are pretty similiar to regular R Markdown documents  but can be shared very easily. They generate a self-contained HTML file which contains a rendered copy of the notebook which can be displayed on a website as well as a copy of the notebook .Rmd itself - handy for sharing and reproducing analyses. 
 * [Shiny in R Markdown](http://rmarkdown.rstudio.com/authoring_shiny.html) - You can embed Shiny code into a R Markdown file, creating interactive documents. This means you could have an [interactive slide-show presentation](http://biotraining.erc.monash.edu:3838/shiny/r-more/slides/#10) or a [html document.](https://uasnap.shinyapps.io/ex_leaflet/)
 * [The Learnr package](https://rstudio.github.io/learnr/index.html) - this is a new package that we haven't really played around with. It turns an R Markdown document into an interactive tutorial, which could be very useful for creating self-directed learning content. 
 * [R Markdown websites](http://rmarkdown.rstudio.com/rmarkdown_websites.html) are a thing - we haven't used them so we can't say more.
-* [R Markdown supports other programming languages](http://rmarkdown.rstudio.com/authoring_knitr_engines.html) - not just R! There's support for Python, SQL, Bash, Rcpp, Stan, Javascript and CSS
+* [R Markdown supports other programming languages](http://rmarkdown.rstudio.com/authoring_knitr_engines.html) - not just R! There's support for Python, SQL, Bash, Rcpp, Stan, Javascript and CSS. 
 
 
 
