@@ -22,7 +22,7 @@ Heavily inspired by Software Carpentry:
 
 ## 
 
-<center><img src="https://static1.squarespace.com/static/55ddab67e4b0104820f2468c/t/59d1b4908419c24cfe1b8df7/1506915565665/Image+uploaded+from+iOS+%283%29.jpg?format=1500w" height="550" /></center>
+<center><img src="../images/workshop_paul.jpg" height="550" /></center>
 
 ## Courses We Have Developed
 
@@ -40,14 +40,13 @@ Three hour sessions:
 
 ## Material Adaptation
 
-<center><img src="data:image/png;base64,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" /></center>
-
 * All our course material is on GitHub
 
 * Adapting Software Carpentry material for our own course 
 
-* Using online material for a Python course
+* Forked online material for a Python course
 
+<center><img src="../images/fork_rotated.png" /></center>
 
 ## Tools and technology
 
@@ -59,11 +58,11 @@ Three hour sessions:
 
 * Collaborative notepads: Etherpad and Google Docs
 
-* Version control and file hosting: GitHub/GitHub Pages
+* Version control and file hosting: Git/GitHub Pages
 
 ## Training Server
 
-* Managed by bio-ansible
+* Managed by [bio-ansible](https://github.com/MonashBioinformaticsPlatform/bio-ansible) - builds bioinformatics servers
 
 * Scripts for adding new users and linking course datasets to their home directories
 
@@ -80,25 +79,25 @@ Markdown is a powerful “language” for writing different kinds of documents, 
 
 R Markdown builds on Markdown, allowing for code to be embedded and executed within the body of a Markdown document. Jupyter Notebooks also integrate Markdown and cell blocks that contain code.
 
-<center><img src="https://github.com/MonashBioinformaticsPlatform/2017-11-16-open-science-training/blob/master/images/rmarkdown.png?raw=true" width="900"/></center>
+<center><img src="../images/rmarkdown.png" width="900"/></center>
 
 ## Why We Use R Markdown
 
 * Code chunks: code is easy to test and very easily embeded with text in one document.
 
-* Reproducible
+* Fully reproducible
 
 * Easy to adapt by another person
 
 * Actively being developed by R-Studio team which means it plays well with other packages developed by them
 
-<center><img src="https://www.rstudio.com/wp-content/uploads/2015/10/r-packages.png"</center>
+<center><img src="https://www.rstudio.com/wp-content/uploads/2015/10/r-packages.png"/></center>
 
 ##
 
 * Versatile - can produce different document formats from the one source text file e.g web pages, pdfs, Word documents, slideshow presentations.
 
-<center><img src="http://rmarkdown.rstudio.com/images/RMarkdownOutputFormats.png"</center>
+<center><img src="http://rmarkdown.rstudio.com/images/RMarkdownOutputFormats.png"/></center>
 
 ## R Markdown in Training
 
@@ -122,7 +121,7 @@ During the workshop:
 
 * Both free to use
 
-<center><img src="https://raw.githubusercontent.com/MonashBioinformaticsPlatform/2017-11-16-open-science-training/master/images/etherdoc_logos.png"</center>
+<center><img src="../images/etherdoc_logos.png"/></center>
 
 ## Etherpad
 
@@ -144,7 +143,7 @@ bin/run.sh
 
 ## Etherpad
 
-<center><img src="https://github.com/MonashBioinformaticsPlatform/2017-11-16-open-science-training/blob/master/images/etherpad.png?raw=true" width="1000" height="500" /></center>
+<center><img src="../images/etherpad.png" width="1000" height="500" /></center>
 
 ## Google Doc
 
@@ -154,10 +153,20 @@ Little discussion, only submission of answers
 
 Notes to self: 
 
-* remember to open access to editing
+* remember to enable editing for attendees
 
 * Also open access to attendees that aren't using an institute email :)
 
-<center><img src="https://www.wired.com/wp-content/uploads/2016/04/Google-Docs-Icon-lead.jpg" width="150" height="150" /></center>
+##
+
+<center><img src="../images/gdoc.png" width="1000" height="500" /></center>
 
 ## In Summary
+
+Training server: ensures everyone has access to same materials and environment
+
+R Markdown for developing training material
+
+Version control training material with Git
+
+In workshops: shared notepads with Etherpad

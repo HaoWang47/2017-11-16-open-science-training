@@ -203,10 +203,10 @@ To create sub-lists, indent the next list evenly by two or four spaces
 
 #### Examples of Markdown syntax - hyperlinks and images
 
-To create a link, the syntax is `[]()` e.g:
+To create a link, the syntax is `[text](link)` e.g:
 
 ```
-[The link text shown on the page](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
+[The text shown on the page](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
 
 ```
 
@@ -214,10 +214,10 @@ This will produce:
 
 <div class="code-exmpl">
 
-[The link text shown on the page](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
+[The text shown on the page](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
 </div>
 
-For an image, the syntax is `![]()` e.g:
+For an image, the syntax is `![](www.image_url_here.png)` e.g:
 
 ```
 ![](https://imgs.xkcd.com/comics/eternal_flame.gif)
@@ -260,7 +260,7 @@ output:
 
 We'll come back to this, once we've got a bit more in our document, to really appreciate the control YAML has over the output of a document.
 
-The full list of [YAML header options for a HTML document](http://rmarkdown.rstudio.com/html_document_format.html). For a [PDF document, look here](http://rmarkdown.rstudio.com/pdf_document_format.html).
+The full list of [YAML header options for a HTML document](http://rmarkdown.rstudio.com/html_document_format.html). 
 
 #### 2. Markdown text
 
@@ -486,6 +486,8 @@ And when we click the `Knit` button, we use the dropdown menu, `Knit to PDF`. Ou
 
 Wait - an error has occured. The message we have is `unused argument (theme = "journal")`. PDF files can't take the `theme` option, this is what's causing our error. Not all YAML options are universally applicable - each document type has options that are specific to them, so it's worth looking at the [R Mardown website](http://rmarkdown.rstudio.com/formats.html) to see what you can do with them. 
 
+For the YAML options for a [PDF document, look here](http://rmarkdown.rstudio.com/pdf_document_format.html).
+
 PDF files can't take the `toc_float: true` as well. Therefore we should try:
 
 ```
@@ -558,16 +560,22 @@ Save this as `style_demo.css` and save it in the same directory as the R Markdow
 title: "Demo Markdown Document"
 output:
   html_document:
-    theme: null
-    highlight: null
-    css: styles.css
+    css: style_demo.css
 ---
 ```
 
 
-This file is then passed to the YAML header - depending on how much the CSS file affects, you may need to set the theme and highlight to null to ensure no conflicts arise. 
+This file is then passed to the YAML header - depending on how much the CSS file affects, you may need to set the theme and highlight to null to ensure no conflicts arise e.g:
 
-This should change all paragraphs to have a blue background. 
+```
+output:
+  html_document:
+    theme: null
+    highlight: null
+    css: style_demo.css
+```
+
+This should change all paragraphs to have a blue background. (Note that if you want to create a table of contents, you cannot set `theme:null`)
 
 It's also possible to target specific parts of the document from the CSS file by using ids and classes to section headers in the document.
 
