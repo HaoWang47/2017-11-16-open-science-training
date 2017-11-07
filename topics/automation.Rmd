@@ -34,16 +34,16 @@ A programmer's natural instinct will be to place this in a "Makefile" so that th
 
 ### Rules
 
-Create a file called `Makefile` containing the following:
+Create a file called `Makefile` (in RStudio, select "File/New File/Text File", and save it with the name `Makefile`). Enter the following in the file:
 
 ```{r eval=FALSE, highlight=FALSE}
 foo.html : foo.Rmd
     Rscript -e 'rmarkdown::render("foo.Rmd")'
 ```
 
-We have described how to create the file `foo.html` from the input file `foo.Rmd`. Multiple input files can be given if necessary, separated by spaces.
-
 **Important:** The indentation in a Makefile is important, and it must be a tab character. You can check this from R with the command `readLines("Makefile")` -- you should see the indent shown as a `\t` escape sequence. 
+
+We have described how to create the file `foo.html` from the input file `foo.Rmd`. Multiple input files can be given if necessary, separated by spaces.
 
 Now in a shell, type:
 
@@ -148,7 +148,9 @@ Create a file `index.Rmd`, with hyperlinks to `foo.html` and `bar.html`. Recall 
 
 Adjust your Makefile so this file is also built into an HTML file.
 
-Now you have a website. You could make this public for example by using [GitHub Pages](https://pages.github.com/), or by running your own webserver (such as [Apache](https://httpd.apache.org/) or [nginx](https://nginx.org/en/)).
+Now you have a website. To test your website, from the "Files" pane in RStudio, click on `index.html` and then "View in Web Browser".
+
+You could make this public for example by using [GitHub Pages](https://pages.github.com/), or by running your own webserver (such as [Apache](https://httpd.apache.org/) or [nginx](https://nginx.org/en/)).
 
 
 ## Python
