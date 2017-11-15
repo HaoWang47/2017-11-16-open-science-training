@@ -60,7 +60,7 @@ If you just type `make` on its own, the first rule in the `Makefile` is used.
 
 #### Exercise {.challenge}
 
-Add some code the `foo.Rmd` that deliberately contains an error. What happens when you try to `make` it?
+Add some code to `foo.Rmd` that deliberately contains an error. What happens when you try to `make` it?
 
 
 ### "Pattern" rules
