@@ -159,11 +159,11 @@ $(document).ready(function () {
 <p>A programmer’s natural instinct will be to place this in a “Makefile” so that the <code>make</code> command can make the HTML document whenever we need to.</p>
 <div id="rules" class="section level3">
 <h3>Rules</h3>
-<p>Create a file called <code>Makefile</code> containing the following:</p>
+<p>Create a file called <code>Makefile</code> (in RStudio, select “File/New File/Text File”, and save it with the name <code>Makefile</code>). Enter the following in the file:</p>
 <pre class="text"><code>foo.html : foo.Rmd
     Rscript -e 'rmarkdown::render(&quot;foo.Rmd&quot;)'</code></pre>
-<p>We have described how to create the file <code>foo.html</code> from the input file <code>foo.Rmd</code>. Multiple input files can be given if necessary, separated by spaces.</p>
 <p><strong>Important:</strong> The indentation in a Makefile is important, and it must be a tab character. You can check this from R with the command <code>readLines(&quot;Makefile&quot;)</code> – you should see the indent shown as a <code>\t</code> escape sequence.</p>
+<p>We have described how to create the file <code>foo.html</code> from the input file <code>foo.Rmd</code>. Multiple input files can be given if necessary, separated by spaces.</p>
 <p>Now in a shell, type:</p>
 <pre class="text"><code>make foo.html</code></pre>
 <p>Nothing happens, as the <code>.html</code> file was created after out last edit of the <code>.Rmd</code>. Make thinks the file is up to date, and does not run the command.</p>
@@ -171,7 +171,7 @@ $(document).ready(function () {
 <p>If you just type <code>make</code> on its own, the first rule in the <code>Makefile</code> is used.</p>
 <div id="exercise" class="section level4 challenge">
 <h4>Exercise</h4>
-<p>Add some code the <code>foo.Rmd</code> that deliberately contains an error. What happens when you try to <code>make</code> it?</p>
+<p>Add some code to <code>foo.Rmd</code> that deliberately contains an error. What happens when you try to <code>make</code> it?</p>
 </div>
 </div>
 <div id="pattern-rules" class="section level3">
@@ -233,7 +233,8 @@ clean :
 <h4>Exercise</h4>
 <p>Create a file <code>index.Rmd</code>, with hyperlinks to <code>foo.html</code> and <code>bar.html</code>. Recall that hyperlinks can be created in markdown with <code>[link text](destination.html)</code>.</p>
 <p>Adjust your Makefile so this file is also built into an HTML file.</p>
-<p>Now you have a website. You could make this public for example by using <a href="https://pages.github.com/">GitHub Pages</a>, or by running your own webserver (such as <a href="https://httpd.apache.org/">Apache</a> or <a href="https://nginx.org/en/">nginx</a>).</p>
+<p>Now you have a website. To test your website, from the “Files” pane in RStudio, click on <code>index.html</code> and then “View in Web Browser”.</p>
+<p>You could make this public for example by using <a href="https://pages.github.com/">GitHub Pages</a>, or by running your own webserver (such as <a href="https://httpd.apache.org/">Apache</a> or <a href="https://nginx.org/en/">nginx</a>).</p>
 </div>
 </div>
 </div>

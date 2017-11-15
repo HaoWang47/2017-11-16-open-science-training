@@ -136,7 +136,7 @@ cd etherpad-lite
 bin/run.sh
 ```
 
-(Will want to make some to changes `settings.json`, especially use a better database than the default `"dirty"`. `"sqlite"` should be fine.)
+(Will want to make some changes to `settings.json`, especially use a better database than the default `"dirty"`, such as `"sqlite"`.)
 
 ## Etherpad
 
