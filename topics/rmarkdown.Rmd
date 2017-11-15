@@ -630,6 +630,8 @@ In summary with R Markdown we can:
 * Choose how to style our documents with a CSS file
 * Use a YAML file to control the output of multiple R Markdown files
 
+## Extended Topics
+
 Things we haven't touched on but think are neat:
 
 * [R Notebooks](http://rmarkdown.rstudio.com/r_notebooks.html) - sort of a special execution mode for R Markdown documents. They are pretty similiar to regular R Markdown documents  but can be shared very easily. They generate a self-contained HTML file which contains a rendered copy of the notebook which can be displayed on a website as well as a copy of the notebook .Rmd itself - handy for sharing and reproducing analyses. 
