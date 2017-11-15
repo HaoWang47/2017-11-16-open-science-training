@@ -28,11 +28,11 @@ Heavily inspired by Software Carpentry:
 
 Full day workshops:
 
-* Intro to R
+* [Intro to R](https://monashbioinformaticsplatform.github.io/r-intro/)
 
-* RNAseq DE analysis using R
+* [RNAseq DE analysis using R](http://monashbioinformaticsplatform.github.io/RNAseq-DE-analysis-with-R/)
 
-* Best Practices in R/Advanced R
+* [Best Practices in R/Advanced R](https://monashbioinformaticsplatform.github.io/r-more/)
 
 Three hour sessions:
 
@@ -40,17 +40,17 @@ Three hour sessions:
 
 ## Material Adaptation
 
-* All our course material is on GitHub
+* Our course material is on GitHub under a creative commons license
 
-* Adapting Software Carpentry material for our own course 
+* Have adapted some Software Carpentry material for our own course 
 
-* Forked online material for a Python course
+* We've also forked online material for a Python course in the past
 
 <center><img src="../images/fork_rotated.png" /></center>
 
 ## Tools and technology
 
-* Server set-up and management: bio-ansible
+* Server set-up and management: [bio-ansible](https://github.com/MonashBioinformaticsPlatform/bio-ansible)
 
 * Training interfaces: R-Studio Server and Jupyter Hub
 
@@ -62,16 +62,13 @@ Three hour sessions:
 
 ## Training Server
 
-* Managed by [bio-ansible](https://github.com/MonashBioinformaticsPlatform/bio-ansible) - builds bioinformatics servers
-
-* Scripts for adding new users and linking course datasets to their home directories
+* Managed by [bio-ansible](https://github.com/MonashBioinformaticsPlatform/bio-ansible) - open source tool for deploying bioinformatics servers
 
 * Running R-Studio/Jupyter on a training server means that partipants just need a web browser
 
 * In theory, should be smooth to get participants going but there are always new problems that crop up
 
 <center><img src="https://imgs.xkcd.com/comics/fixing_problems.png" height="200"/></center>
-
 
 ## Training Material - R Markdown/Jupyter Notebooks
 
@@ -163,7 +160,7 @@ Notes to self:
 
 ## In Summary
 
-Training server: ensures everyone has access to same materials and environment
+Training server: bio-ansible ensures everyone has access to same materials and environment
 
 R Markdown for developing training material
 
