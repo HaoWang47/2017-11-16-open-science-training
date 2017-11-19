@@ -13,6 +13,8 @@ Course material for the [Using Open Science in Bioinformatics Training workshop]
 
 * [Document markup languages](slides/markup.html)
 
+* [Using standards for greater reuse of training material](2017_11_16_ABACBCS_workshop_standards.pdf)
+
 ## Tutorials
 
 * [Writing documents with R Markdown](topics/rmarkdown.html)
@@ -32,6 +34,7 @@ This course was developed by the [Monash Bioinformatics Platform](http://bioinfo
 
 * Adele Barugahare
 * Paul Harrison
+* Sonika Tyagi
 
 <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="images/CC-BY.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
 
